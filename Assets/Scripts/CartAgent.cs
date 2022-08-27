@@ -26,12 +26,11 @@ public class CartAgent : MonoBehaviour
 
         LeftClick();
 
-        if(dist < 5f)
+        if(dist < 2f)
         {
             if(i < positions.Count - 1)
             {
                 i++;
-                agent.SetDestination(positions[i]);
             }
         }
     }
