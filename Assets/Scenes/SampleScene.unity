@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 963194227}
   agent: {fileID: 1130682002}
-  targetDest: {fileID: 668588871}
+  positions: []
 --- !u!1 &1167118563
 GameObject:
   m_ObjectHideFlags: 0
