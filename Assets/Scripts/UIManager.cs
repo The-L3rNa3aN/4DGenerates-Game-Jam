@@ -14,5 +14,7 @@ public class UIManager : MonoBehaviour
 
     public void LevelSelectButton() => SceneManager.LoadScene("LevelSelect");
 
+    public void BackToMenuButton() => SceneManager.LoadScene("MainMenu");
+
     public void QuitGame() => Application.Quit();
 }
