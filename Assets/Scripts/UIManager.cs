@@ -14,6 +14,10 @@ public class UIManager : MonoBehaviour
 
     public void LevelSelectButton() => SceneManager.LoadScene("LevelSelect");
 
+    public void CreditsButton() => SceneManager.LoadScene("Credits");
+
+    public void HowToPlayButton() => SceneManager.LoadScene("HowToPlay");
+
     public void BackToMenuButton() => SceneManager.LoadScene("MainMenu");
 
     public void QuitGame() => Application.Quit();
