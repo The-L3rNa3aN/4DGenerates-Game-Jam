@@ -30,7 +30,7 @@ public class CartAgent : MonoBehaviour
         {
             if(i < positions.Count - 1)
             {
-                i++;
+                positions.RemoveAt(i); //i++;
             }
         }
     }
