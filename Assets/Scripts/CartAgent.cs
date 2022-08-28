@@ -9,12 +9,19 @@ public class CartAgent : MonoBehaviour
     public NavMeshAgent agent;
     private int i = 0;
     private float dist;
+    public int cartNumber;
+    private GameManager gameManager;
 
     [SerializeField] private List<Vector3> positions = new List<Vector3>();
 
     [Header("Left Mouse Click cooldown")]
     private float cooldown = 1f;
     private float lmbTimer = 0f;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     private void Update()
     {
@@ -37,7 +44,7 @@ public class CartAgent : MonoBehaviour
 
     private void LeftClick()
     {
-        if (Input.GetMouseButton(0) && lmbTimer == 0f)
+        if (Input.GetMouseButton(0) && lmbTimer == 0f && cartNumber == gameManager.cartNum)
         {
             lmbTimer = cooldown;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
