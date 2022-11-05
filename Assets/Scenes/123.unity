@@ -34406,6 +34406,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: dc898d7128c93c34b8a99b201a7532d0, type: 3}
   m_PrefabInstance: {fileID: 1366719256}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1367381730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1367381731}
+  m_Layer: 0
+  m_Name: LookAtTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1367381731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367381730}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1368215863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39711,6 +39742,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1528113962}
+  - component: {fileID: 1528113963}
   m_Layer: 0
   m_Name: CameraHolderB
   m_TagString: CameraHolder
@@ -39733,6 +39765,19 @@ Transform:
   m_Father: {fileID: 1469515674}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 40.1, y: -132.45, z: 0}
+--- !u!114 &1528113963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528113961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37822cec33710641a76402eb30c83b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1367381731}
 --- !u!1001 &1528493682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40790,6 +40835,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1561974719}
+  - component: {fileID: 1561974720}
   m_Layer: 0
   m_Name: CameraHolderA
   m_TagString: CameraHolder
@@ -40812,6 +40858,19 @@ Transform:
   m_Father: {fileID: 1469515674}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 40.1, y: 46.54, z: 0}
+--- !u!114 &1561974720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561974718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37822cec33710641a76402eb30c83b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1367381731}
 --- !u!1001 &1564722095
 PrefabInstance:
   m_ObjectHideFlags: 0
