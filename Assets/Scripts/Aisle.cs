@@ -6,16 +6,13 @@ public class Aisle : MonoBehaviour
 {
     public string product;
 
-    private void Start()
-    {
-        product = gameObject.name;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<ShoppingList>())
+        var cart = other.GetComponent<CartAgent>();
+
+        if(cart) /*other.GetComponent<ShoppingList>()*/
         {
-            Debug.Log(other.GetComponent<CartAgent>().cartNumber + ", " + product);
+            /*Debug.Log(other.GetComponent<CartAgent>().cartNumber + ", " + product);
             var list = other.GetComponent<ShoppingList>();
 
             for(int i = 0; i < list.shopList.Count; i++)
@@ -24,7 +21,8 @@ public class Aisle : MonoBehaviour
                 {
                     list.shopList.RemoveAt(i);
                 }
-            }
+            }*/
+            Debug.Log(cart.cartNumber);
         }
     }
 }
