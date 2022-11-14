@@ -25,12 +25,9 @@ public class ShoppingList : MonoBehaviour
     public int listCount;
     private int temp;
 
-    private void Start()
-    {
-        RandomShoppingList();
-    }
+    private void Start() => RandomShoppingList();
 
-    private void RandomShoppingList()
+    public void RandomShoppingList()
     {
         shopList.Clear();
         listCount = Random.Range(3, 5);
@@ -40,7 +37,7 @@ public class ShoppingList : MonoBehaviour
         {
             if(temp < listCount)
             {
-                var randomItem = Random.Range(0, listOfObjects.Count - 1);
+                int randomItem = Random.Range(0, listOfObjects.Count - 1);
                 shopList.Add(listOfObjects[randomItem]);
                 temp++;
             }

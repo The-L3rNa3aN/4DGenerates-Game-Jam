@@ -9,20 +9,20 @@ public class Aisle : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var cart = other.GetComponent<CartAgent>();
+        var shoppingList = other.GetComponent<ShoppingList>();
 
-        if(cart) /*other.GetComponent<ShoppingList>()*/
+        if(shoppingList)
         {
-            /*Debug.Log(other.GetComponent<CartAgent>().cartNumber + ", " + product);
-            var list = other.GetComponent<ShoppingList>();
+            Debug.Log(cart + ", " + product);
 
-            for(int i = 0; i < list.shopList.Count; i++)
+            for(int i = 0; i < shoppingList.shopList.Count; i++)
             {
-                if(list.shopList[i] == product)
-                {
-                    list.shopList.RemoveAt(i);
-                }
-            }*/
-            Debug.Log(cart.cartNumber);
+                if (shoppingList.shopList[i] == product)
+                    shoppingList.shopList.RemoveAt(i);
+            }
+
+            if (shoppingList.listCount == 0)
+                shoppingList.RandomShoppingList();
         }
     }
 }
