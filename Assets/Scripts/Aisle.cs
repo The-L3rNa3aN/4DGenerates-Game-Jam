@@ -13,16 +13,14 @@ public class Aisle : MonoBehaviour
 
         if(shoppingList)
         {
-            Debug.Log(cart + ", " + product);
-
             for(int i = 0; i < shoppingList.shopList.Count; i++)
             {
                 if (shoppingList.shopList[i] == product)
+                {
                     shoppingList.shopList.RemoveAt(i);
+                }
             }
-
-            if (shoppingList.listCount == 0)
-                shoppingList.RandomShoppingList();
+            shoppingList.IfListEmpty();
         }
     }
 }

@@ -24,8 +24,13 @@ public class ShoppingList : MonoBehaviour
 
     public int listCount;
     private int temp;
+    private string cartName;
 
-    private void Start() => RandomShoppingList();
+    private void Start()
+    {
+        RandomShoppingList();
+        cartName = transform.name;
+    }
 
     public void RandomShoppingList()
     {
@@ -42,5 +47,18 @@ public class ShoppingList : MonoBehaviour
                 temp++;
             }
         }
+    }
+
+    public void IfListEmpty()
+    {
+        if(shopList.Count == 0)
+            StartCoroutine(CoListEmpty());
+    }
+
+    private IEnumerator CoListEmpty()
+    {
+        yield return new WaitForSeconds(3.5f);
+        Debug.Log(cartName + " is given a new shopping list.");
+        RandomShoppingList();
     }
 }
