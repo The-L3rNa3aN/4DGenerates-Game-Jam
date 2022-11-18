@@ -10,4 +10,4 @@ The degenerates: -<br>
 
 **[Himzelf](https://github.com/JonathanJoS)** (Level Design)
 
-**[The L3rNa3aN](https://github.com/The-L3rNa3aN)** (Programmer)
+**[The L3rNa3aN](https://github.com/The-L3rNa3aN)** (Programmer and the guardian of this realm. YOU SHALL NOT PASS!)
