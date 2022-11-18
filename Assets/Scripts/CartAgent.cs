@@ -21,6 +21,7 @@ public class CartAgent : MonoBehaviour
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        InputManager.lmbInput += LeftClick;
     }
 
     private void Update()
@@ -30,8 +31,6 @@ public class CartAgent : MonoBehaviour
             dist = Vector3.Distance(positions[i], transform.position);
             agent.SetDestination(positions[i]);
         }
-
-        LeftClick();
 
         if(dist < 2f)
         {
@@ -44,7 +43,7 @@ public class CartAgent : MonoBehaviour
 
     private void LeftClick()
     {
-        if (Input.GetMouseButton(0) && lmbTimer == 0f && cartNumber == gameManager.cartNum)
+        if (cartNumber == gameManager.cartNum) //&& !gameManager.isPaused)
         {
             lmbTimer = cooldown;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);

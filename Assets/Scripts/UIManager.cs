@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     public void PlayButton()
     {
         //For now.
@@ -23,4 +30,9 @@ public class UIManager : MonoBehaviour
     }
 
     public void QuitGame() => Application.Quit();
+
+    public void ResumeButton()
+    {
+        gameManager.PauseGame();
+    }
 }
