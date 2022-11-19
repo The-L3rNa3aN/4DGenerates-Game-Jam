@@ -8,11 +8,9 @@ public class UIManager : MonoBehaviour
 {
     private GameManager gameManager;
 
-    private void Start()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
+    private void Start() => gameManager = FindObjectOfType<GameManager>();
 
+    /// MAIN MENU, HOW TO PLAY and CREDITS
     public void PlayButton()
     {
         //For now.
@@ -31,8 +29,6 @@ public class UIManager : MonoBehaviour
 
     public void QuitGame() => Application.Quit();
 
-    public void ResumeButton()
-    {
-        gameManager.PauseGame();
-    }
+    /// IN-GAME
+    public void ResumeButton() => gameManager.PauseGame();
 }

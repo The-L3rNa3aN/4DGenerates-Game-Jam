@@ -26,10 +26,13 @@ public class ShoppingList : MonoBehaviour
     private int temp;
     private string cartName;
 
+    private CartAgent cartAgent;
+
     private void Start()
     {
         RandomShoppingList();
         cartName = transform.name;
+        cartAgent = GetComponent<CartAgent>();
     }
 
     public void RandomShoppingList()
@@ -60,5 +63,6 @@ public class ShoppingList : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
         Debug.Log(cartName + " is given a new shopping list.");
         RandomShoppingList();
+        cartAgent.TimerReset();
     }
 }

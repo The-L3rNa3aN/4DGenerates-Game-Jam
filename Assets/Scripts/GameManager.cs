@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     private GameObject cameraManager;
     [SerializeField] private GameObject[] cartAgents;
 
+    [Header("Player Score")]
+    public int score = 0;
+
     private void Start()
     {
         cartNum = 1;
@@ -54,4 +57,6 @@ public class GameManager : MonoBehaviour
             pauseMenu.SetActive(false);
         }
     }
+
+    public void AddScore(int add) => score += add;
 }
