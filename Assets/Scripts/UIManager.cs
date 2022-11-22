@@ -9,14 +9,38 @@ public class UIManager : MonoBehaviour
 {
     private GameManager gameManager;
 
-    private void Start() => gameManager = FindObjectOfType<GameManager>();
+    [Header("Grades earned")]
+    private string Day1Grade;
+    private string Day2Grade;
+    private string Day3Grade;
+
+    private void Awake()
+    {
+        string grade1 = PlayerPrefs.GetString("day1_grade");
+        string grade2 = PlayerPrefs.GetString("day2_grade");
+        string grade3 = PlayerPrefs.GetString("day3_grade");
+
+        if (grade1 == "")
+            PlayerPrefs.SetString("day1_grade", "none");
+
+        if (grade2 == "")
+            PlayerPrefs.SetString("day2_grade", "none");
+
+        if (grade3 == "")
+            PlayerPrefs.SetString("day3_grade", "none");
+    }
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+
+        Day1Grade = PlayerPrefs.GetString("day1_grade");
+        Day2Grade = PlayerPrefs.GetString("day2_grade");
+        Day3Grade = PlayerPrefs.GetString("day3_grade");
+    }
 
     /// MAIN MENU, HOW TO PLAY and CREDITS
-    public void PlayButton()
-    {
-        //For now.
-        SceneManager.LoadScene("123");
-    }
+    public void PlayButton() => SceneManager.LoadScene("LevelSelect");
 
     public void CreditsButton() => SceneManager.LoadScene("Credits");
 
