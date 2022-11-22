@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int cartNum;
+    public int levelSelected;
 
     [Header("Pause Menu")]
     public GameObject pauseMenu;
@@ -26,11 +27,22 @@ public class GameManager : MonoBehaviour
         InputManager.num3Input += Alpha3Selected;
 
         cameraManager = FindObjectOfType<CameraManager>().gameObject;
+        levelSelected = PlayerPrefs.GetInt("levelSelectValue");
     }
 
     private void Alpha1Selected() => cartNum = 1;
-    private void Alpha2Selected() => cartNum = 2;
-    private void Alpha3Selected() => cartNum = 3;
+
+    private void Alpha2Selected()
+    {
+        if (levelSelected >= 2)
+            cartNum = 2;
+    }
+
+    private void Alpha3Selected()
+    {
+        if (levelSelected == 3)
+            cartNum = 3;
+    }
 
     public void PauseGame()
     {
