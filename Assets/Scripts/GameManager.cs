@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Score")]
     public int score = 0;
+    private char grade, oldGrade;
 
     [Header("Time")]
     public float gameTimer;         //Measured in seconds.
@@ -23,6 +25,12 @@ public class GameManager : MonoBehaviour
     [Header("Pause Menu")]
     public GameObject pauseMenu;
     public bool isPaused;
+
+    [Header("Game Over Screen")]
+    public GameObject endScreen;
+    public Text gradeEarned;
+    public GameObject newGradeNotif;
+    public Button nextLevel;
 
     [Header("Other References")]
     private GameObject cameraManager;
@@ -43,14 +51,17 @@ public class GameManager : MonoBehaviour
         {
             case 1:
                 gameTimer = 240f;
+                oldGrade = StringToChar(PlayerPrefs.GetString("day1_grade"));
                 break;
 
             case 2:
                 gameTimer = 300f;
+                oldGrade = StringToChar(PlayerPrefs.GetString("day2_grade"));
                 break;
 
             case 3:
                 gameTimer = 360f;
+                oldGrade = StringToChar(PlayerPrefs.GetString("day3_grade"));
                 break;
         }
 
@@ -65,6 +76,47 @@ public class GameManager : MonoBehaviour
         {
             isTimerRunning = false;
             Debug.Log("Time's up!");
+
+            foreach (GameObject cart in cartAgents)
+                cart.GetComponent<CartAgent>().enabled = false;
+            cameraManager.GetComponent<CameraManager>().enabled = false;
+
+            GetGradeOnEnd();
+
+            if(grade < oldGrade)
+            {
+                switch(levelSelected)
+                {
+                    case 1:
+                        PlayerPrefs.SetString("day1_grade", grade.ToString());
+                        break;
+
+                    case 2:
+                        PlayerPrefs.SetString("day2_grade", grade.ToString());
+                        break;
+
+                    case 3:
+                        PlayerPrefs.SetString("day3_grade", grade.ToString());
+                        break;
+                }
+                PlayerPrefs.Save();
+            }
+        }
+    }
+
+    private void OnGUI()
+    {
+        if(gameTimer <= 0f)
+        {
+            StartCoroutine(CoEndScreen());
+
+            if (grade < oldGrade)
+                newGradeNotif.gameObject.SetActive(true);
+
+            if(grade <= 'C')
+                nextLevel.interactable = true;
+
+            gradeEarned.text = "Grade earned: " + grade;
         }
     }
 
@@ -143,5 +195,62 @@ public class GameManager : MonoBehaviour
         cameraManager.GetComponent<CameraManager>().enabled = true;
 
         isTimerRunning = true;                                      //Start the game timer.
+    }
+
+    private IEnumerator CoEndScreen()
+    {
+        yield return new WaitForSeconds(2f);
+        endScreen.SetActive(true);
+    }
+
+    private void GetGradeOnEnd()
+    {
+        switch(levelSelected)
+        {
+            case 1:
+                if (score >= 0 && score <= 10)
+                    grade = 'F';
+                else if (score >= 10 && score <= 30)
+                    grade = 'D';
+                else if (score >= 30 && score <= 50)
+                    grade = 'C';
+                else if (score >= 50 && score <= 70)
+                    grade = 'B';
+                else if (score >= 70 && score <= 90)
+                    grade = 'A';
+                break;
+
+            case 2:
+                if (score >= 0 && score <= 30)
+                    grade = 'F';
+                else if (score >= 30 && score <= 60)
+                    grade = 'D';
+                else if (score >= 60 && score <= 90)
+                    grade = 'C';
+                else if (score >= 90 && score <= 120)
+                    grade = 'B';
+                else if (score >= 120 && score <= 150)
+                    grade = 'A';
+                break;
+
+            case 3:
+                if (score >= 0 && score <= 50)
+                    grade = 'F';
+                else if (score >= 50 && score <= 100)
+                    grade = 'D';
+                else if (score >= 100 && score <= 150)
+                    grade = 'C';
+                else if (score >= 150 && score <= 200)
+                    grade = 'B';
+                else if (score >= 200 && score <= 250)
+                    grade = 'A';
+                break;
+        }
+    }
+
+    private char StringToChar(string str)                           //Converts any string to char. Obviously.
+    {
+        char[] c = str.ToCharArray();
+        return c[0];
     }
 }

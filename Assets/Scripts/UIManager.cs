@@ -82,4 +82,12 @@ public class UIManager : MonoBehaviour
 
     /// IN-GAME
     public void ResumeButton() => gameManager.PauseGame();
+
+    public void NextLevelButton()
+    {
+        int currentLevel = PlayerPrefs.GetInt("levelSelectValue");
+        PlayerPrefs.SetInt("levelSelectValue", currentLevel++);
+        Debug.Log("Level selected: " + currentLevel);
+        SceneManager.LoadScene("123");
+    }
 }
