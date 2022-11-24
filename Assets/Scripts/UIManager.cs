@@ -108,12 +108,12 @@ public class UIManager : MonoBehaviour
         ///Buttons for levels 2 and 3 are disabled if their respective previous levels don't have a 
         ///grade higher or equal to C.
         
-        if (StringToChar(Day1Grade) < 'C' || Day1Grade == "none")   //Enable / disable button day2.
+        if (StringToChar(Day1Grade) > 'C' || Day1Grade == "none")   //Enable / disable button day2.
             day2.interactable = false;
         else
             day2.interactable = true;
 
-        if (StringToChar(Day2Grade) < 'C' || Day2Grade == "none")   //Enable / disable button day3.
+        if (StringToChar(Day2Grade) > 'C' || Day2Grade == "none")   //Enable / disable button day3.
             day3.interactable = false;
         else
             day3.interactable = true;
