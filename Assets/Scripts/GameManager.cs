@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         switch(levelSelected)                           //Set gameTimer based on the difficulty chosen.
         {
             case 1:
-                gameTimer = 10f; //240f;
+                gameTimer = 240f;
                 oldGrade = StringToChar(PlayerPrefs.GetString("day1_grade"));
                 break;
 
