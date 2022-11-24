@@ -123,8 +123,11 @@ public class GameManager : MonoBehaviour
             if (grade < oldGrade)
                 newGradeNotif.gameObject.SetActive(true);
 
-            if(grade <= 'C')
+            if(StringToChar(PlayerPrefs.GetString("day1_grade")) <= 'C')
                 nextLevel.interactable = true;
+
+            if (levelSelected == 3)                             //The NextLevel button is disabled when the player completes the final level.
+                nextLevel.gameObject.SetActive(false);
 
             gradeEarned.text = "Grade earned: " + grade;
         }

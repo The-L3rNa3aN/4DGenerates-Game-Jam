@@ -8,7 +8,6 @@ public class Aisle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var cart = other.GetComponent<CartAgent>();
         var shoppingList = other.GetComponent<ShoppingList>();
 
         if(shoppingList)

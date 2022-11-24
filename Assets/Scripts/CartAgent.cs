@@ -78,33 +78,12 @@ public class CartAgent : MonoBehaviour
     public void TimerReset()
     {
         float diff = timeLimit - timer;
-        if(diff > 0f)
-        {
+        if (diff > 0f)
             GameManager.instance.AddScore(10);
-        }
+        else if (diff < 0f && diff > -7.5f)
+            GameManager.instance.AddScore(5);
         else
-        {
-            if (diff <= -5f)
-                GameManager.instance.AddScore(9);
-            else if (diff <= -10f)
-                GameManager.instance.AddScore(8);
-            else if (diff <= -15f)
-                GameManager.instance.AddScore(7);
-            else if (diff <= -20f)
-                GameManager.instance.AddScore(6);
-            else if (diff <= -25f)
-                GameManager.instance.AddScore(5);
-            else if (diff <= -30f)
-                GameManager.instance.AddScore(4);
-            else if (diff <= -35f)
-                GameManager.instance.AddScore(3);
-            else if (diff <= -40f)
-                GameManager.instance.AddScore(2);
-            else if (diff <= -45f)
-                GameManager.instance.AddScore(1);
-            else
-                GameManager.instance.AddScore(0);
-        }
+            GameManager.instance.AddScore(0);           //Is this even required?
 
         timer = 0f;
         runTimer = true;
