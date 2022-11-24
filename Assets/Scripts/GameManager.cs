@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public int cartNum;
     public int levelSelected;
+    public static GameManager instance { get; private set; }
 
     [Header("Player Score")]
     public int score = 0;
@@ -35,6 +36,15 @@ public class GameManager : MonoBehaviour
     [Header("Other References")]
     private GameObject cameraManager;
     [SerializeField] private GameObject[] cartAgents;
+
+    private void Awake()
+    {
+        //Singleton
+        if (instance != null && instance != this)
+            Destroy(this);
+        else
+            instance = this;
+    }
 
     private void Start()
     {

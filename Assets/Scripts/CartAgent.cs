@@ -10,7 +10,6 @@ public class CartAgent : MonoBehaviour
     private int i = 0;
     private float dist;
     public int cartNumber;
-    private GameManager gameManager;
 
     [SerializeField] private List<Vector3> positions = new List<Vector3>();
 
@@ -26,7 +25,6 @@ public class CartAgent : MonoBehaviour
 
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
         InputManager.lmbInput += LeftClick;
     }
 
@@ -50,7 +48,7 @@ public class CartAgent : MonoBehaviour
 
     private void LeftClick()
     {
-        if (cartNumber == gameManager.cartNum) //&& !gameManager.isPaused)
+        if (cartNumber == GameManager.instance.cartNum) //&& !gameManager.isPaused)
         {
             lmbTimer = cooldown;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -82,30 +80,30 @@ public class CartAgent : MonoBehaviour
         float diff = timeLimit - timer;
         if(diff > 0f)
         {
-            gameManager.AddScore(10);
+            GameManager.instance.AddScore(10);
         }
         else
         {
             if (diff <= -5f)
-                gameManager.AddScore(9);
+                GameManager.instance.AddScore(9);
             else if (diff <= -10f)
-                gameManager.AddScore(8);
+                GameManager.instance.AddScore(8);
             else if (diff <= -15f)
-                gameManager.AddScore(7);
+                GameManager.instance.AddScore(7);
             else if (diff <= -20f)
-                gameManager.AddScore(6);
+                GameManager.instance.AddScore(6);
             else if (diff <= -25f)
-                gameManager.AddScore(5);
+                GameManager.instance.AddScore(5);
             else if (diff <= -30f)
-                gameManager.AddScore(4);
+                GameManager.instance.AddScore(4);
             else if (diff <= -35f)
-                gameManager.AddScore(3);
+                GameManager.instance.AddScore(3);
             else if (diff <= -40f)
-                gameManager.AddScore(2);
+                GameManager.instance.AddScore(2);
             else if (diff <= -45f)
-                gameManager.AddScore(1);
+                GameManager.instance.AddScore(1);
             else
-                gameManager.AddScore(0);
+                GameManager.instance.AddScore(0);
         }
 
         timer = 0f;

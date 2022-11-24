@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    private GameManager gameManager;
-
     [Header("Grades earned")]
     private string Day1Grade;
     private string Day2Grade;
@@ -32,8 +30,6 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
-
         Day1Grade = PlayerPrefs.GetString("day1_grade");
         Day2Grade = PlayerPrefs.GetString("day2_grade");
         Day3Grade = PlayerPrefs.GetString("day3_grade");
@@ -81,7 +77,7 @@ public class UIManager : MonoBehaviour
     }
 
     /// IN-GAME
-    public void ResumeButton() => gameManager.PauseGame();
+    public void ResumeButton() => GameManager.instance.PauseGame();
 
     public void NextLevelButton()
     {
