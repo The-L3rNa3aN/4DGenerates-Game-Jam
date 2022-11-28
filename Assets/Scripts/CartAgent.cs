@@ -31,8 +31,10 @@ public class CartAgent : MonoBehaviour
 
     private void Update()
     {
-        TimerRun();
-        if(positions.Count != 0)
+        if (runTimer && cartNumber >= GameManager.instance.cartNum)
+            timer += Time.deltaTime;
+
+        if (positions.Count != 0)
         {
             dist = Vector3.Distance(positions[i], transform.position);
             agent.SetDestination(positions[i]);
@@ -63,11 +65,6 @@ public class CartAgent : MonoBehaviour
         if(lmbTimer > 0f) lmbTimer -= Time.deltaTime;
 
         if(lmbTimer < 0f) lmbTimer = 0f;
-    }
-
-    private void TimerRun()
-    {
-        if (runTimer) timer += Time.deltaTime;
     }
 
     public void TimerReset()

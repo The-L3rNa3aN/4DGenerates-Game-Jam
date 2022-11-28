@@ -25,6 +25,7 @@ public class ShoppingList : MonoBehaviour
     public int listCount;
     private int temp;
     private string cartName;
+    [SerializeField] private bool isEmpty;              //Needed to prevent the shopping list from having the function called with many trigger colliders present.
 
     private CartAgent cartAgent;
 
@@ -54,8 +55,11 @@ public class ShoppingList : MonoBehaviour
 
     public void IfListEmpty()
     {
-        if(shopList.Count == 0)
+        if(shopList.Count == 0 && isEmpty == false)
+        {
             StartCoroutine(CoListEmpty());
+            isEmpty = true;
+        }
     }
 
     private IEnumerator CoListEmpty()
@@ -64,5 +68,6 @@ public class ShoppingList : MonoBehaviour
         Debug.Log(cartName + " is given a new shopping list.");
         RandomShoppingList();
         cartAgent.TimerReset();
+        isEmpty = false;
     }
 }

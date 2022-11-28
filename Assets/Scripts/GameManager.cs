@@ -204,7 +204,11 @@ public class GameManager : MonoBehaviour
         countdownPanel.SetActive(false);
 
         foreach (GameObject cart in cartAgents)                     //Enable the camera and carts now that the countdown is over.
+        {
             cart.GetComponent<CartAgent>().enabled = true;
+            cart.GetComponent<CartAgent>().runTimer = true;         //Enable the timer for all carts. TimerRun() in CartAgent.cs will take care of the rest.
+        }
+
         cameraManager.GetComponent<CameraManager>().enabled = true;
 
         isTimerRunning = true;                                      //Start the game timer.
