@@ -103,6 +103,12 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("123");
     }
 
+    public void UnlockAllButtons()
+    {
+        day2.interactable = true;
+        day3.interactable = true;
+    }
+
     private void DisableButtons()                                   //Disables buttons in level select.
     {
         ///Buttons for levels 2 and 3 are disabled if their respective previous levels don't have a 

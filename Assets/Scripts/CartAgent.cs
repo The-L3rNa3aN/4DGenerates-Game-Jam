@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class CartAgent : MonoBehaviour
 {
-    public Camera cam;
+    [SerializeField] private Camera cam;
     public NavMeshAgent agent;
     private int i = 0;
     private float dist;
@@ -26,6 +26,7 @@ public class CartAgent : MonoBehaviour
     private void Start()
     {
         InputManager.lmbInput += LeftClick;
+        cam = Camera.main;
     }
 
     private void Update()
@@ -38,16 +39,13 @@ public class CartAgent : MonoBehaviour
         }
 
         if(dist < 2f)
-        {
-            if(i < positions.Count - 1)
-            {
-                positions.RemoveAt(i); //i++;
-            }
-        }
+            if (i < positions.Count - 1) positions.RemoveAt(i); //i++;
     }
 
     private void LeftClick()
     {
+        if (cam == null) cam = Camera.main;             //For a MissingReferenceException that pops up after reloading the level. Could it be performance intensive?
+
         if (cartNumber == GameManager.instance.cartNum) //&& !gameManager.isPaused)
         {
             lmbTimer = cooldown;
@@ -69,10 +67,7 @@ public class CartAgent : MonoBehaviour
 
     private void TimerRun()
     {
-        if(runTimer)
-        {
-            timer += Time.deltaTime;
-        }
+        if (runTimer) timer += Time.deltaTime;
     }
 
     public void TimerReset()

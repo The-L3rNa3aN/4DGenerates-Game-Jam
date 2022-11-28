@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Other References")]
     private GameObject cameraManager;
-    [SerializeField] private GameObject[] cartAgents;
+    public GameObject[] cartAgents;
 
     private void Awake()
     {
