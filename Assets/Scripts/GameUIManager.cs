@@ -4,12 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
-//Separate script for handling the in-game UI (mostly for lesser headache).
+/*Separate script for handling certain in-game UI (mostly for lesser headache).
+Handles the following things: -
+  * Displays the game timer, cart selected, score and the cart's respective list.
+  * Functions which are used by the OnClick events for the main menu and resume
+    buttons in the pause menu.*/
 
 public class GameUIManager : MonoBehaviour
 {
-    [Header("In Game UI - 123")]
+    [Header("In Game UI")]
     public Text t_gameTimer;
     public Text t_cartSelected;
     public Text t_score;
@@ -31,9 +36,9 @@ public class GameUIManager : MonoBehaviour
 
     private void OnGUI()
     {
-        t_gameTimer.text = FormatTime(gameTimer);
-        t_cartSelected.text = "Cart selected: " + cartNum;
-        t_score.text = "Score: " + score;
+        t_gameTimer.text = FormatTime(gameTimer);                       //Displays the game timer.
+        t_cartSelected.text = "Cart selected: " + cartNum;              //Displays the cart number currently selected.
+        t_score.text = "Score: " + score;                               //Displays the score.
 
         foreach (GameObject agent in agents)
         {
@@ -48,6 +53,24 @@ public class GameUIManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    //PAUSE MENU.
+    public void Button_MainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Button_Resume() => GameManager.instance.PauseGame();    //References for the pause panel are in GameManager.cs
+
+    //GAME OVER SCREEN.
+    public void Button_NextLevel()
+    {
+        int currentLevel = PlayerPrefs.GetInt("levelSelectValue");
+        PlayerPrefs.SetInt("levelSelectValue", currentLevel++);
+        Debug.Log("Level selected: " + currentLevel);
+        SceneManager.LoadScene("123");
     }
 
     public string FormatTime(float value)

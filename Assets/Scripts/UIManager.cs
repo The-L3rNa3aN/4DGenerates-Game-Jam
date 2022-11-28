@@ -92,17 +92,6 @@ public class UIManager : MonoBehaviour
         day3.interactable = false;
     }
 
-    /// IN-GAME
-    public void ResumeButton() => GameManager.instance.PauseGame();
-
-    public void NextLevelButton()
-    {
-        int currentLevel = PlayerPrefs.GetInt("levelSelectValue");
-        PlayerPrefs.SetInt("levelSelectValue", currentLevel++);
-        Debug.Log("Level selected: " + currentLevel);
-        SceneManager.LoadScene("123");
-    }
-
     public void UnlockAllButtons()
     {
         day2.interactable = true;
