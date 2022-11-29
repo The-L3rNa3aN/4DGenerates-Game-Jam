@@ -56,8 +56,14 @@ public class CartAgent : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                Vector3 pos = hit.point;
-                positions.Add(pos);
+                ///Another way to try:
+                ///If an aisle is clicked, have the pos to be manually moved towards the origin. (RECOMMENDED)
+                
+                if(hit.transform.tag != "Aisle")        //For a bug where the cart tries reaching the unreachable position
+                {
+                    Vector3 pos = hit.point;
+                    positions.Add(pos);
+                }
             }
         }
 
