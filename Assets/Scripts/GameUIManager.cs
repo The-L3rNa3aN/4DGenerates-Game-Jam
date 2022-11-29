@@ -18,7 +18,7 @@ public class GameUIManager : MonoBehaviour
     public Text t_gameTimer;
     public Text t_cartSelected;
     public Text t_score;
-    public Text[] t_listItems;              //Assigned in editor.
+    public Text[] t_listItems;                                           //Assigned in editor.
 
     [Header("GameManager references")]
     [SerializeField] private float gameTimer;
@@ -39,6 +39,8 @@ public class GameUIManager : MonoBehaviour
         t_gameTimer.text = FormatTime(gameTimer);                       //Displays the game timer.
         t_cartSelected.text = "Cart selected: " + cartNum;              //Displays the cart number currently selected.
         t_score.text = "Score: " + score;                               //Displays the score.
+
+        foreach(Text item in t_listItems) item.text = "";
 
         foreach (GameObject agent in agents)
         {
