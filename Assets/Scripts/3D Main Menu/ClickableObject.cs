@@ -5,11 +5,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-/// Used only in the MainMenu_3D scene.
+/// Used only in the MainMenu_3D scene. Also handles mouse over events.
 
 public class ClickableObject : MonoBehaviour
 {
-    public UnityEvent ActivateSelectedFunction;
+    public UnityEvent MouseDownFunc;
+    public UnityEvent MouseOverFunc;
 
     [Header("ThreeDCameraManager position references")]
     private Vector3 menu;
@@ -17,6 +18,9 @@ public class ClickableObject : MonoBehaviour
     private Vector3 howToPlay;
     private Vector3 credits;
     private Vector3 quit;
+
+    [Header("3D Text on hover")]
+    public TextMesh mm_text;
 
     [Header("Grades earned")]
     private string Day1Grade;
@@ -52,28 +56,39 @@ public class ClickableObject : MonoBehaviour
         Day3Grade = PlayerPrefs.GetString("day3_grade");
     }
 
-    private void OnMouseDown() => ActivateSelectedFunction.Invoke();
+    private void OnMouseDown() => MouseDownFunc.Invoke();
+    private void OnMouseOver() => MouseOverFunc.Invoke();
+
+    private void OnMouseExit()
+    {
+        mm_text.gameObject.SetActive(false);
+    }
 
     #region MAIN MENU FUNCTIONS
-    public void Play()
+    public void MDPlay()
     {
         Debug.Log("Navigating to PLAY");
         ThreeDCameraManager.instance.MoveCamera(menu, levelSelect);
     }
+    public void MOPlay()
+    {
+        mm_text.gameObject.SetActive(true);
+        
+    }
 
-    public void HowToPlay()
+    public void MDHowToPlay()
     {
         Debug.Log("Navigating to HOW TO PLAY");
         ThreeDCameraManager.instance.MoveCamera(menu, howToPlay);
     }
 
-    public void Credits()
+    public void MDCredits()
     {
         Debug.Log("Navigating to CREDITS");
         ThreeDCameraManager.instance.MoveCamera(menu, credits);
     }
 
-    public void Quit()
+    public void MDQuit()
     {
         Debug.Log("Navigating to QUIT");
         ThreeDCameraManager.instance.MoveCamera(menu, quit);
@@ -81,14 +96,14 @@ public class ClickableObject : MonoBehaviour
     #endregion
 
     #region LEVEL SELECT FUNCTIONS
-    public void Day1()
+    public void MDDay1()
     {
         PlayerPrefs.SetInt("levelSelectValue", 1);
         Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
         SceneManager.LoadScene("123");
     }
 
-    public void Day2()
+    public void MDDay2()
     {
         if(StringToChar(Day1Grade) <= 'C')
         {
@@ -98,7 +113,7 @@ public class ClickableObject : MonoBehaviour
         }
     }
 
-    public void Day3()
+    public void MDDay3()
     {
         if (StringToChar(Day2Grade) <= 'C')
         {
