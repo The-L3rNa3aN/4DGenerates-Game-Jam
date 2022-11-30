@@ -9,6 +9,9 @@ public class ThreeDCameraManager : MonoBehaviour
     [Header("Camera Positions")]
     public Transform menu;
     public Transform levelSelect;
+    public Transform howToPlay;
+    public Transform credits;
+    public Transform quit;
 
     private void Awake()
     {
@@ -19,7 +22,7 @@ public class ThreeDCameraManager : MonoBehaviour
             instance = this;
     }
 
-    public void MoveCamera(Vector3 start, Vector3 finish, float time) => StartCoroutine(CoMoveCamera(start, finish));
+    public void MoveCamera(Vector3 start, Vector3 finish) => StartCoroutine(CoMoveCamera(start, finish));
 
     private IEnumerator CoMoveCamera(Vector3 start, Vector3 finish)
     {
@@ -28,9 +31,10 @@ public class ThreeDCameraManager : MonoBehaviour
         while(t < 1f)
         {
             t += Time.deltaTime / 2f;
+            if (t > 1f) t = 1;
 
+            transform.position = Vector3.Lerp(start, finish, t);
+            yield return null;
         }
-
-        yield return null;
     }
 }
