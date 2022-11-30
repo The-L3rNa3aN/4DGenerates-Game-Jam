@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class CartAgent : MonoBehaviour
 {
-    public Camera cam;
+    [SerializeField] private Camera cam;
     public NavMeshAgent agent;
     private int i = 0;
     private float dist;
@@ -26,28 +26,28 @@ public class CartAgent : MonoBehaviour
     private void Start()
     {
         InputManager.lmbInput += LeftClick;
+        cam = Camera.main;
     }
 
     private void Update()
     {
-        TimerRun();
-        if(positions.Count != 0)
+        if (runTimer && cartNumber >= GameManager.instance.cartNum)
+            timer += Time.deltaTime;
+
+        if (positions.Count != 0)
         {
             dist = Vector3.Distance(positions[i], transform.position);
             agent.SetDestination(positions[i]);
         }
 
         if(dist < 2f)
-        {
-            if(i < positions.Count - 1)
-            {
-                positions.RemoveAt(i); //i++;
-            }
-        }
+            if (i < positions.Count - 1) positions.RemoveAt(i); //i++;
     }
 
     private void LeftClick()
     {
+        if (cam == null) cam = Camera.main;             //For a MissingReferenceException that pops up after reloading the level. Could it be performance intensive?
+
         if (cartNumber == GameManager.instance.cartNum) //&& !gameManager.isPaused)
         {
             lmbTimer = cooldown;
@@ -56,8 +56,14 @@ public class CartAgent : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                Vector3 pos = hit.point;
-                positions.Add(pos);
+                ///Another way to try:
+                ///If an aisle is clicked, have the pos to be manually moved towards the origin. (RECOMMENDED)
+                
+                if(hit.transform.tag != "Aisle")        //For a bug where the cart tries reaching the unreachable position
+                {
+                    Vector3 pos = hit.point;
+                    positions.Add(pos);
+                }
             }
         }
 
@@ -65,14 +71,6 @@ public class CartAgent : MonoBehaviour
         if(lmbTimer > 0f) lmbTimer -= Time.deltaTime;
 
         if(lmbTimer < 0f) lmbTimer = 0f;
-    }
-
-    private void TimerRun()
-    {
-        if(runTimer)
-        {
-            timer += Time.deltaTime;
-        }
     }
 
     public void TimerReset()

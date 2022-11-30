@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AICart
   - CameraHolder
+  - Aisle
   layers:
   - Default
   - TransparentFX

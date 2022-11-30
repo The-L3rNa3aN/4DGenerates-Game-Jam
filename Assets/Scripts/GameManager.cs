@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private char grade, oldGrade;
 
     [Header("Time")]
-    public float gameTimer;         //Measured in seconds.
+    public float gameTimer;                             //Measured in seconds.
     public bool isTimerRunning;
 
     [Header("On Start Countdown")]
@@ -35,7 +35,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Other References")]
     private GameObject cameraManager;
-    [SerializeField] private GameObject[] cartAgents;
+    public GameObject[] cartAgents;
+    public GameObject gameUI;
 
     private void Awake()
     {
@@ -204,9 +205,12 @@ public class GameManager : MonoBehaviour
         countdownPanel.SetActive(false);
 
         foreach (GameObject cart in cartAgents)                     //Enable the camera and carts now that the countdown is over.
+        {
             cart.GetComponent<CartAgent>().enabled = true;
-        cameraManager.GetComponent<CameraManager>().enabled = true;
+            cart.GetComponent<CartAgent>().runTimer = true;         //Enable the timer for all carts. TimerRun() in CartAgent.cs will take care of the rest.
+        }
 
+        cameraManager.GetComponent<CameraManager>().enabled = true;
         isTimerRunning = true;                                      //Start the game timer.
     }
 
@@ -214,6 +218,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         endScreen.SetActive(true);
+        gameUI.SetActive(false);
     }
 
     private void GetGradeOnEnd()
@@ -229,7 +234,7 @@ public class GameManager : MonoBehaviour
                     grade = 'C';
                 else if (score >= 50 && score <= 70)
                     grade = 'B';
-                else if (score >= 70 && score <= 90)
+                else if (score >= 70)
                     grade = 'A';
                 break;
 
@@ -242,7 +247,7 @@ public class GameManager : MonoBehaviour
                     grade = 'C';
                 else if (score >= 90 && score <= 120)
                     grade = 'B';
-                else if (score >= 120 && score <= 150)
+                else if (score >= 120)
                     grade = 'A';
                 break;
 
@@ -255,7 +260,7 @@ public class GameManager : MonoBehaviour
                     grade = 'C';
                 else if (score >= 150 && score <= 200)
                     grade = 'B';
-                else if (score >= 200 && score <= 250)
+                else if (score >= 200)
                     grade = 'A';
                 break;
         }
