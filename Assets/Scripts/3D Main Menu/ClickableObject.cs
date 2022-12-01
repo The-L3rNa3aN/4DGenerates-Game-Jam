@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -20,7 +21,8 @@ public class ClickableObject : MonoBehaviour
     private Vector3 quit;
 
     [Header("3D Text on hover")]
-    public TextMesh mm_text;
+    public TextMeshPro mm_text;
+    public TextMeshPro ls_text;
 
     [Header("Grades earned")]
     private string Day1Grade;
@@ -61,7 +63,9 @@ public class ClickableObject : MonoBehaviour
 
     private void OnMouseExit()
     {
-        mm_text.gameObject.SetActive(false);
+        //I hate them fucking errors flooding the console.
+        if(mm_text != null) mm_text.gameObject.SetActive(false);
+        if(ls_text != null) ls_text.gameObject.SetActive(false);
     }
 
     #region MAIN MENU FUNCTIONS
@@ -73,7 +77,7 @@ public class ClickableObject : MonoBehaviour
     public void MOPlay()
     {
         mm_text.gameObject.SetActive(true);
-        
+        mm_text.text = "Play the game";
     }
 
     public void MDHowToPlay()
@@ -81,17 +85,32 @@ public class ClickableObject : MonoBehaviour
         Debug.Log("Navigating to HOW TO PLAY");
         ThreeDCameraManager.instance.MoveCamera(menu, howToPlay);
     }
+    public void MOHowToPlay()
+    {
+        mm_text.gameObject.SetActive(true);
+        mm_text.text = "All the know-how for playing";
+    }
 
     public void MDCredits()
     {
         Debug.Log("Navigating to CREDITS");
         ThreeDCameraManager.instance.MoveCamera(menu, credits);
     }
+    public void MOCredits()
+    {
+        mm_text.gameObject.SetActive(true);
+        mm_text.text = "Learn the ones behind the game (and maybe your mom)";
+    }
 
     public void MDQuit()
     {
         Debug.Log("Navigating to QUIT");
         ThreeDCameraManager.instance.MoveCamera(menu, quit);
+    }
+    public void MOQuit()
+    {
+        mm_text.gameObject.SetActive(true);
+        mm_text.text = "Quit the game and go touch grass";
     }
     #endregion
 
@@ -101,6 +120,11 @@ public class ClickableObject : MonoBehaviour
         PlayerPrefs.SetInt("levelSelectValue", 1);
         Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
         SceneManager.LoadScene("123");
+    }
+    public void MODay1()
+    {
+        ls_text.gameObject.SetActive(true);
+        ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day1_grade");
     }
 
     public void MDDay2()
@@ -112,6 +136,11 @@ public class ClickableObject : MonoBehaviour
             SceneManager.LoadScene("123");
         }
     }
+    public void MODay2()
+    {
+        ls_text.gameObject.SetActive(true);
+        ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day2_grade");
+    }
 
     public void MDDay3()
     {
@@ -122,6 +151,11 @@ public class ClickableObject : MonoBehaviour
             SceneManager.LoadScene("123");
         }
     }
+    public void MODay3()
+    {
+        ls_text.gameObject.SetActive(true);
+        ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day3_grade");
+    }
     #endregion
 
     public void Yes()
@@ -130,7 +164,7 @@ public class ClickableObject : MonoBehaviour
         Application.Quit();
     }
 
-    public void Back()              //Used for the back button and the "no" option before quitting.
+    public void Back()                                              //Used for the back button and the "no" option before quitting.
     {
         Vector3 currentPos = ThreeDCameraManager.instance.transform.position;
         ThreeDCameraManager.instance.MoveCamera(currentPos, menu);
