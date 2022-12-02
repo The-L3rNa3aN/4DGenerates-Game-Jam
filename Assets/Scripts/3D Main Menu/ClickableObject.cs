@@ -156,6 +156,16 @@ public class ClickableObject : MonoBehaviour
         ls_text.gameObject.SetActive(true);
         ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day3_grade");
     }
+
+    public void MDReset()
+    {
+
+    }
+    public void MOReset()
+    {
+        ls_text.gameObject.SetActive(true);
+        ls_text.text = "Reset all your progress, if you dare";
+    }
     #endregion
 
     public void Yes()

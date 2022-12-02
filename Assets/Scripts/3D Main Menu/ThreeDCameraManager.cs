@@ -30,11 +30,11 @@ public class ThreeDCameraManager : MonoBehaviour
 
         while(t < 1f)
         {
-            t += Time.deltaTime / 2f;
+            t += Time.deltaTime;
             if (t > 1f) t = 1;
 
             transform.position = Vector3.Lerp(start, finish, t);
-            yield return null;
+            yield return new WaitForEndOfFrame(); //yield return null;
         }
     }
 }
