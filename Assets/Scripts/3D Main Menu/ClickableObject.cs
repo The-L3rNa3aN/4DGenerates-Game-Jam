@@ -129,12 +129,15 @@ public class ClickableObject : MonoBehaviour
 
     public void MDDay2()
     {
-        if(StringToChar(Day1Grade) <= 'C')
+        char c = StringToChar(Day1Grade);
+        if (Day1Grade != "none" && c <= 'C')
         {
             PlayerPrefs.SetInt("levelSelectValue", 2);
             Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
             SceneManager.LoadScene("123");
         }
+        else
+            Debug.Log("test");
     }
     public void MODay2()
     {
@@ -159,12 +162,18 @@ public class ClickableObject : MonoBehaviour
 
     public void MDReset()
     {
+        PlayerPrefs.SetString("day1_grade", "none");
+        PlayerPrefs.SetString("day2_grade", "none");
+        PlayerPrefs.SetString("day3_grade", "none");
 
+        Day1Grade = PlayerPrefs.GetString("day1_grade");
+        Day2Grade = PlayerPrefs.GetString("day2_grade");
+        Day3Grade = PlayerPrefs.GetString("day3_grade");
     }
     public void MOReset()
     {
         ls_text.gameObject.SetActive(true);
-        ls_text.text = "Reset all your progress, if you dare";
+        ls_text.text = "Reset your progress, if you dare";
     }
     #endregion
 
