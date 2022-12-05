@@ -137,7 +137,7 @@ public class ClickableObject : MonoBehaviour
             SceneManager.LoadScene("123");
         }
         else
-            Debug.Log("test");
+            Debug.Log("Requires 'C' or higher in Day 1.");
     }
     public void MODay2()
     {
@@ -147,12 +147,15 @@ public class ClickableObject : MonoBehaviour
 
     public void MDDay3()
     {
-        if (StringToChar(Day2Grade) <= 'C')
+        char c = StringToChar(Day2Grade);
+        if (Day2Grade != "none" && c <= 'C')
         {
             PlayerPrefs.SetInt("levelSelectValue", 3);
             Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
             SceneManager.LoadScene("123");
         }
+        else
+            Debug.Log("Requires 'C' or higher in Day 2.");
     }
     public void MODay3()
     {
