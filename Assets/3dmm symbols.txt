@@ -1,0 +1,11 @@
+Main menu:
+Play - play button
+How to play - question mark
+Credits - "C"
+Quit - Power button
+
+Back button - arrow mark / fire exit symbol
+
+Level Select:
+Days 1, 2 and 3: numbers 1, 2 and 3. Each with different colors: R, G and B
+Reset: "R" / looping arrow symbol
