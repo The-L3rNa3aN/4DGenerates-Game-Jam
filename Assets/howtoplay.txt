@@ -1,0 +1,11 @@
+The goal is to complete shopping lists in carts in the shortest time possible and to amass a large enough score before the game's timer runs out.
+
+Select the cart you want to control with numbers 1, 2 and 3 on your keyboard. The number of carts you get to control along with the timer duration and the score required to pass will increase with each level.
+
+To change your camera view, press Tab.
+
+In order to move the selected cart, simply click anywhere on the floor and the cart will be directed. You may click as many points possible and the cart shall follow every single one of them.
+
+Upon completing a shopping list, the cart shall take 3 seconds to regenerate a new one.
+
+To access the next level, the grade you receive in the previous level should be 'C' or higher.
