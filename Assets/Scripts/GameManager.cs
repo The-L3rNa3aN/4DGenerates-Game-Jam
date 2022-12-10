@@ -1,3 +1,4 @@
+using cakeslice;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Other References")]
     private GameObject cameraManager;
+    private OutlineEffect outLineEffect;
     public GameObject[] cartAgents;
     public GameObject gameUI;
 
@@ -56,6 +58,7 @@ public class GameManager : MonoBehaviour
         InputManager.num3Input += Alpha3Selected;
 
         cameraManager = FindObjectOfType<CameraManager>().gameObject;
+        outLineEffect = cameraManager.GetComponent<OutlineEffect>();
         levelSelected = PlayerPrefs.GetInt("levelSelectValue");
 
         switch(levelSelected)                           //Set gameTimer based on the difficulty chosen.
@@ -135,7 +138,21 @@ public class GameManager : MonoBehaviour
     }
 
     #region Key Presses: 1, 2, 3, Esc
-    private void Alpha1Selected() => cartNum = 1;
+    private void Alpha1Selected()
+    {
+        cartNum = 1;
+        CartAgent[] agents = default;
+
+        //Set outlines.
+        for(int i = 0; i < cartAgents.Length; i++)
+            agents[i] = cartAgents[i].GetComponent<CartAgent>();
+
+        foreach(CartAgent agent in agents)
+        {
+            if(agent.cartNumber != cartNum)
+                agent.outLine.GetComponent<cakeslice.Outline>().enabled = false;
+        }
+    }
 
     private void Alpha2Selected()
     {

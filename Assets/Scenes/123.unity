@@ -10121,6 +10121,7 @@ GameObject:
   - component: {fileID: 755043086}
   - component: {fileID: 755043085}
   - component: {fileID: 755043088}
+  - component: {fileID: 755043089}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10208,6 +10209,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posA: {fileID: 1561974719}
   posB: {fileID: 1528113962}
+  cart1color: {r: 0.5176471, g: 0.62352943, b: 0.73333335, a: 1}
+  cart2color: {r: 1, g: 0.38431373, b: 0.25490198, a: 1}
+  cart3color: {r: 0.54509807, g: 0.5686275, b: 0.3882353, a: 1}
+--- !u!114 &755043089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755043084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab037f51ef2adc4b9417d0828e7d549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineThickness: 1.25
+  lineIntensity: 0.5
+  fillAmount: 0.2
+  lineColor0: {r: 1, g: 0, b: 0, a: 1}
+  lineColor1: {r: 0, g: 1, b: 0, a: 1}
+  lineColor2: {r: 0, g: 0, b: 1, a: 1}
+  additiveRendering: 0
+  backfaceCulling: 1
+  fillColor: {r: 0, g: 0, b: 1, a: 1}
+  useFillColor: 0
+  cornerOutlines: 0
+  addLinesBetweenColors: 0
+  scaleWithScreenSize: 1
+  alphaCutoff: 0.5
+  flipY: 0
+  sourceCamera: {fileID: 0}
+  autoEnableOutlines: 0
+  outlineCamera: {fileID: 0}
+  outlineShaderMaterial: {fileID: 0}
+  renderTexture: {fileID: 0}
+  extraRenderTexture: {fileID: 0}
 --- !u!1001 &759813953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20787,6 +20824,10 @@ PrefabInstance:
       propertyPath: cartNumber
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4253736867734857491, guid: 09802c6a1411f044a9bb9ea8e8c3f59f, type: 3}
+      propertyPath: color
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09802c6a1411f044a9bb9ea8e8c3f59f, type: 3}
 --- !u!1001 &1526704750
@@ -23568,6 +23609,10 @@ PrefabInstance:
     - target: {fileID: 977605749794420727, guid: 09802c6a1411f044a9bb9ea8e8c3f59f, type: 3}
       propertyPath: cartNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4253736867734857491, guid: 09802c6a1411f044a9bb9ea8e8c3f59f, type: 3}
+      propertyPath: color
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09802c6a1411f044a9bb9ea8e8c3f59f, type: 3}
@@ -29625,6 +29670,10 @@ PrefabInstance:
     - target: {fileID: 977605749794420727, guid: 09802c6a1411f044a9bb9ea8e8c3f59f, type: 3}
       propertyPath: cam
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4253736867734857491, guid: 09802c6a1411f044a9bb9ea8e8c3f59f, type: 3}
+      propertyPath: color
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09802c6a1411f044a9bb9ea8e8c3f59f, type: 3}

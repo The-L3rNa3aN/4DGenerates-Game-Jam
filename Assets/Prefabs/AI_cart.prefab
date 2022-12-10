@@ -95,7 +95,12 @@ MonoBehaviour:
   cam: {fileID: 0}
   agent: {fileID: 977605749794420728}
   cartNumber: 1
+  outLine: {fileID: 4253736867734857491}
   positions: []
+  timer: 0
+  timeLimit: 15
+  isLate: 0
+  runTimer: 0
 --- !u!114 &977605749794420725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopList: []
   listCount: 0
+  isEmpty: 0
 --- !u!54 &1994555820
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -386,6 +392,7 @@ GameObject:
   - component: {fileID: 3843113486681040492}
   - component: {fileID: 7557104172415205797}
   - component: {fileID: 2811459208008484024}
+  - component: {fileID: 4253736867734857491}
   m_Layer: 0
   m_Name: Starship_Body_Model
   m_TagString: Untagged
@@ -458,6 +465,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4253736867734857491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5937617991034910240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ff6cef3aebafe4c8624d76d93b3bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
 --- !u!1 &6005256075693904839
 GameObject:
   m_ObjectHideFlags: 0

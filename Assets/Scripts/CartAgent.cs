@@ -1,3 +1,4 @@
+using cakeslice;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,12 @@ using UnityEngine.AI;
 
 public class CartAgent : MonoBehaviour
 {
-    [SerializeField] private Camera cam;
+    private Camera cam;
     public NavMeshAgent agent;
     private int i = 0;
     private float dist;
     public int cartNumber;
+    public Outline outLine;
 
     [SerializeField] private List<Vector3> positions = new List<Vector3>();
 
