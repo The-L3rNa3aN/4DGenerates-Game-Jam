@@ -1,0 +1,35 @@
+Towel (striped): -
+Hex: #84C3BB
+R: 132
+G: 195
+B: 187
+
+Umbrella (also striped): -
+Hex: #FF6241
+R: 255
+G: 98
+B: 65
+
+Sand and Sun: -
+Hex: #EDCB9D
+R: 237
+G: 203
+B: 157
+
+Aloe Leaves: -
+Hex: #8B9163
+R: 139
+G: 145
+B: 99
+
+Avocado on Sourdough: -
+Hex: #8A8102
+R: 138
+G: 129
+B: 2
+
+Strawberry Daiquiri: -
+Hex: #C05C5C
+R: 192
+G: 92
+B: 92
