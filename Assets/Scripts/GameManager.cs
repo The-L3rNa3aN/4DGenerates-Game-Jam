@@ -1,8 +1,10 @@
 using cakeslice;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -141,29 +143,29 @@ public class GameManager : MonoBehaviour
     private void Alpha1Selected()
     {
         cartNum = 1;
-        CartAgent[] agents = default;
+        CameraManager cm = cameraManager.GetComponent<CameraManager>();
 
-        //Set outlines.
-        for(int i = 0; i < cartAgents.Length; i++)
-            agents[i] = cartAgents[i].GetComponent<CartAgent>();
-
-        foreach(CartAgent agent in agents)
-        {
-            if(agent.cartNumber != cartNum)
-                agent.outLine.GetComponent<cakeslice.Outline>().enabled = false;
-        }
+        outLineEffect.lineColor0 = cm.cart1color;
     }
 
     private void Alpha2Selected()
     {
+        CameraManager cm = cameraManager.GetComponent<CameraManager>();
         if (levelSelected >= 2)
+        {
             cartNum = 2;
+            outLineEffect.lineColor0 = cm.cart2color;
+        }
     }
 
     private void Alpha3Selected()
     {
+        CameraManager cm = cameraManager.GetComponent<CameraManager>();
         if (levelSelected == 3)
+        {
             cartNum = 3;
+            outLineEffect.lineColor0 = cm.cart3color;
+        }
     }
 
     public void PauseGame()

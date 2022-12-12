@@ -12,6 +12,7 @@ public class CartAgent : MonoBehaviour
     private float dist;
     public int cartNumber;
     public Outline outLine;
+    private GameManager gameManager;
 
     [SerializeField] private List<Vector3> positions = new List<Vector3>();
 
@@ -29,11 +30,12 @@ public class CartAgent : MonoBehaviour
     {
         InputManager.lmbInput += LeftClick;
         cam = Camera.main;
+        gameManager = GameManager.instance;
     }
 
     private void Update()
     {
-        if (runTimer && cartNumber >= GameManager.instance.cartNum)
+        if (runTimer && cartNumber >= gameManager.cartNum)
             timer += Time.deltaTime;
 
         if (positions.Count != 0)
@@ -44,6 +46,11 @@ public class CartAgent : MonoBehaviour
 
         if(dist < 2f)
             if (i < positions.Count - 1) positions.RemoveAt(i); //i++;
+
+        if(cartNumber == gameManager.cartNum)
+            gameManager.cartAgents[cartNumber - 1].GetComponent<CartAgent>().outLine.GetComponent<cakeslice.Outline>().eraseRenderer = false;
+        else
+            gameManager.cartAgents[cartNumber - 1].GetComponent<CartAgent>().outLine.GetComponent<cakeslice.Outline>().eraseRenderer = true;
     }
 
     private void LeftClick()
