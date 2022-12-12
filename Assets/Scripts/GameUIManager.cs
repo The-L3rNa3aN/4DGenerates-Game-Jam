@@ -14,6 +14,8 @@ Handles the following things: -
 
 public class GameUIManager : MonoBehaviour
 {
+    private GameManager gameManager;
+
     [Header("In Game UI")]
     public Text t_gameTimer;
     public Text t_cartSelected;
@@ -28,10 +30,11 @@ public class GameUIManager : MonoBehaviour
 
     private void Update()
     {
-        gameTimer = GameManager.instance.gameTimer;
-        cartNum = GameManager.instance.cartNum;
-        agents = GameManager.instance.cartAgents;
-        score = GameManager.instance.score;
+        gameManager = GameManager.instance;
+        gameTimer = gameManager.gameTimer;
+        cartNum = gameManager.cartNum;
+        agents = gameManager.cartAgents;
+        score = gameManager.score;
     }
 
     private void OnGUI()

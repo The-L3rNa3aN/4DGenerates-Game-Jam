@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using Outline = cakeslice.Outline;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,6 +36,19 @@ public class GameManager : MonoBehaviour
     public Text gradeEarned;
     public GameObject newGradeNotif;
     public Button nextLevel;
+
+    [Header("Outlining Aisles")]
+    public Outline out_apple;
+    public Outline out_banana;
+    public Outline out_grapes;
+    public Outline out_onion;
+    public Outline out_orange;
+    public Outline out_bread;
+    public Outline out_coke;
+    public Outline out_fringles;
+    public Outline out_milk;
+    public Outline out_soap;
+    public Outline out_water;
 
     [Header("Other References")]
     private GameObject cameraManager;
