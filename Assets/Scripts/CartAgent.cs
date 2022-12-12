@@ -48,16 +48,16 @@ public class CartAgent : MonoBehaviour
             if (i < positions.Count - 1) positions.RemoveAt(i); //i++;
 
         if(cartNumber == gameManager.cartNum)
-            gameManager.cartAgents[cartNumber - 1].GetComponent<CartAgent>().outLine.GetComponent<cakeslice.Outline>().eraseRenderer = false;
+            outLine.GetComponent<Outline>().eraseRenderer = false;
         else
-            gameManager.cartAgents[cartNumber - 1].GetComponent<CartAgent>().outLine.GetComponent<cakeslice.Outline>().eraseRenderer = true;
+            outLine.GetComponent<Outline>().eraseRenderer = true;
     }
 
     private void LeftClick()
     {
         if (cam == null) cam = Camera.main;             //For a MissingReferenceException that pops up after reloading the level. Could it be performance intensive?
 
-        if (cartNumber == GameManager.instance.cartNum) //&& !gameManager.isPaused)
+        if (cartNumber == gameManager.cartNum) //&& !gameManager.isPaused)
         {
             lmbTimer = cooldown;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -86,11 +86,11 @@ public class CartAgent : MonoBehaviour
     {
         float diff = timeLimit - timer;
         if (diff > 0f)
-            GameManager.instance.AddScore(10);
+            gameManager.AddScore(10);
         else if (diff < 0f && diff > -7.5f)
-            GameManager.instance.AddScore(5);
+            gameManager.AddScore(5);
         else
-            GameManager.instance.AddScore(0);           //Is this even required?
+            gameManager.AddScore(0);           //Is this even required?
 
         timer = 0f;
         runTimer = true;
