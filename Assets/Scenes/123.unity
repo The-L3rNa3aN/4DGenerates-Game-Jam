@@ -24118,6 +24118,19 @@ MonoBehaviour:
   gradeEarned: {fileID: 1636303038}
   newGradeNotif: {fileID: 308105818}
   nextLevel: {fileID: 1168659315}
+  outlines:
+  - {fileID: 1882306584}
+  - {fileID: 2103069926}
+  - {fileID: 1327596890}
+  - {fileID: 287882453}
+  - {fileID: 63856702}
+  - {fileID: 511534052}
+  - {fileID: 537501054}
+  - {fileID: 1982977065}
+  - {fileID: 2144231594}
+  - {fileID: 1691688669}
+  - {fileID: 1410268510}
+  - {fileID: 330968565}
   cartAgents:
   - {fileID: 924492702}
   - {fileID: 2099913330}

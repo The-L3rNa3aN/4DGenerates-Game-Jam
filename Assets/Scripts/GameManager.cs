@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using System;
 using Outline = cakeslice.Outline;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour//, ISerializationCallbackReceiver
 {
     public int cartNum;
     public int levelSelected;
@@ -38,17 +38,23 @@ public class GameManager : MonoBehaviour
     public Button nextLevel;
 
     [Header("Outlining Aisles")]
-    public Outline out_apple;
-    public Outline out_banana;
-    public Outline out_grapes;
-    public Outline out_onion;
-    public Outline out_orange;
-    public Outline out_bread;
-    public Outline out_coke;
-    public Outline out_fringles;
-    public Outline out_milk;
-    public Outline out_soap;
-    public Outline out_water;
+    public Outline[] outlines;
+    private string[] items =
+    {
+        "Apple",
+        "Banana",
+        "Bread",
+        "Coke",
+        "Fringles",
+        "Grapes",
+        "Milk",
+        "Onion",
+        "Orange",
+        "Soap Bottle",
+        "Water Bottle",
+        "Yogurt"
+    };
+    private Dictionary<string, Outline> listOutline;
 
     [Header("Other References")]
     private GameObject cameraManager;
@@ -93,6 +99,23 @@ public class GameManager : MonoBehaviour
                 gameTimer = 360f;
                 oldGrade = StringToChar(PlayerPrefs.GetString("day3_grade"));
                 break;
+        }
+
+        /*foreach(Outline o in outlines)
+        {
+            foreach(string s in items)
+            {
+                //Debug.Log(s, o);
+                listOutline.Add(s, o);
+            }
+        }*/
+
+        for(int i = 0; i < items.Length; i++)
+        {
+            for(int j = i; j < outlines.Length; j++)
+            {
+                listOutline.Add(items[i], outlines[j]);
+            }
         }
 
         StartCoroutine(CoBeginCountdown());             //Start a "3-2-1" countdown for the player to prepare.
