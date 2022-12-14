@@ -37,25 +37,6 @@ public class GameManager : MonoBehaviour//, ISerializationCallbackReceiver
     public GameObject newGradeNotif;
     public Button nextLevel;
 
-    [Header("Outlining Aisles")]
-    public Outline[] outlines;
-    private string[] items =
-    {
-        "Apple",
-        "Banana",
-        "Bread",
-        "Coke",
-        "Fringles",
-        "Grapes",
-        "Milk",
-        "Onion",
-        "Orange",
-        "Soap Bottle",
-        "Water Bottle",
-        "Yogurt"
-    };
-    private Dictionary<string, Outline> listOutline;
-
     [Header("Other References")]
     private GameObject cameraManager;
     private OutlineEffect outLineEffect;
@@ -99,23 +80,6 @@ public class GameManager : MonoBehaviour//, ISerializationCallbackReceiver
                 gameTimer = 360f;
                 oldGrade = StringToChar(PlayerPrefs.GetString("day3_grade"));
                 break;
-        }
-
-        /*foreach(Outline o in outlines)
-        {
-            foreach(string s in items)
-            {
-                //Debug.Log(s, o);
-                listOutline.Add(s, o);
-            }
-        }*/
-
-        for(int i = 0; i < items.Length; i++)
-        {
-            for(int j = i; j < outlines.Length; j++)
-            {
-                listOutline.Add(items[i], outlines[j]);
-            }
         }
 
         StartCoroutine(CoBeginCountdown());             //Start a "3-2-1" countdown for the player to prepare.

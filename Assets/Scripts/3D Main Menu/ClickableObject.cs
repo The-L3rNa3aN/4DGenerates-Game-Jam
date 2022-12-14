@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using cakeslice;
+using Outline = cakeslice.Outline;
 
 /// Used only in the MainMenu_3D scene. Also handles mouse over events.
 
 public class ClickableObject : MonoBehaviour
 {
+    public bool isClickable { get; set; }
+
     public UnityEvent MouseDownFunc;
     public UnityEvent MouseOverFunc;
 
@@ -29,6 +34,9 @@ public class ClickableObject : MonoBehaviour
     private string Day2Grade;
     private string Day3Grade;
 
+    [Header("123 Aisle Names On Hover")]
+    public Text aisleName;
+
     private void Awake()
     {
         string grade1 = PlayerPrefs.GetString("day1_grade");
@@ -47,18 +55,24 @@ public class ClickableObject : MonoBehaviour
 
     private void Start()
     {
-        menu = ThreeDCameraManager.instance.menu.position;
-        levelSelect = ThreeDCameraManager.instance.levelSelect.position;
-        howToPlay = ThreeDCameraManager.instance.howToPlay.position;
-        credits = ThreeDCameraManager.instance.credits.position;
-        quit = ThreeDCameraManager.instance.quit.position;
+        if(SceneManager.GetActiveScene().name == "MainMenu_3D")
+        {
+            menu = ThreeDCameraManager.instance.menu.position;
+            levelSelect = ThreeDCameraManager.instance.levelSelect.position;
+            howToPlay = ThreeDCameraManager.instance.howToPlay.position;
+            credits = ThreeDCameraManager.instance.credits.position;
+            quit = ThreeDCameraManager.instance.quit.position;
 
-        Day1Grade = PlayerPrefs.GetString("day1_grade");
-        Day2Grade = PlayerPrefs.GetString("day2_grade");
-        Day3Grade = PlayerPrefs.GetString("day3_grade");
+            Day1Grade = PlayerPrefs.GetString("day1_grade");
+            Day2Grade = PlayerPrefs.GetString("day2_grade");
+            Day3Grade = PlayerPrefs.GetString("day3_grade");
+        }
     }
 
-    private void OnMouseDown() => MouseDownFunc.Invoke();
+    private void OnMouseDown()
+    {
+        if (isClickable) MouseDownFunc.Invoke();
+    }
     private void OnMouseOver() => MouseOverFunc.Invoke();
 
     private void OnMouseExit()
@@ -66,6 +80,7 @@ public class ClickableObject : MonoBehaviour
         //I hate them fucking errors flooding the console.
         if(mm_text != null) mm_text.gameObject.SetActive(false);
         if(ls_text != null) ls_text.gameObject.SetActive(false);
+        if (aisleName != null) aisleName.gameObject.SetActive(false);
     }
 
     #region MAIN MENU FUNCTIONS
@@ -177,6 +192,80 @@ public class ClickableObject : MonoBehaviour
     {
         ls_text.gameObject.SetActive(true);
         ls_text.text = "Reset your progress, if you dare";
+    }
+    #endregion
+
+    #region 123 HOVER
+    public void OnHoverAisle()
+    {
+        if(SceneManager.GetActiveScene().name == "123")
+        {
+            Outline outline = gameObject.GetComponent<Outline>();
+            aisleName.gameObject.SetActive(true);
+
+            switch (gameObject.name)
+            {
+                case "cube_apples":
+                    outline.eraseRenderer = false;
+                    aisleName.text = "Apples";
+                    break;
+
+                case "cube_bananas":
+                    outline.eraseRenderer = false;
+                    aisleName.text = "Bananas";
+                    break;
+
+                case "cube_bread":
+                    outline.eraseRenderer = false;
+                    aisleName.text = "Bread";
+                    break;
+
+                case "cube_coke":
+                    outline.eraseRenderer = false;
+                    aisleName.text = "Coke";
+                    break;
+
+                case "cube_fringles":
+                    outline.eraseRenderer = false;
+                    aisleName.text = "Fringles";
+                    break;
+
+                case "cube_grapes":
+                    outline.eraseRenderer = false;
+                    aisleName.text = "Grapes";
+                    break;
+
+                case "cube_milk":
+                    outline.eraseRenderer = false;
+                    aisleName.text = "Milk";
+                    break;
+
+                case "cube_onions":
+                    outline.eraseRenderer = false;
+                    aisleName.text = "Onions";
+                    break;
+
+                case "cube_oranges":
+                    outline.eraseRenderer = false;
+                    aisleName.text = "Oranges";
+                    break;
+
+                case "cube_soap":
+                    outline.eraseRenderer = false;
+                    aisleName.text = "Soap Bottles";
+                    break;
+
+                case "cube_water":
+                    outline.eraseRenderer = false;
+                    aisleName.text = "Water Bottles";
+                    break;
+
+                case "cube_yogurt":
+                    outline.eraseRenderer = false;
+                    aisleName.text = "Yogurt";
+                    break;
+            }
+        }
     }
     #endregion
 

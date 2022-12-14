@@ -1002,6 +1002,7 @@ GameObject:
   - component: {fileID: 63856704}
   - component: {fileID: 63856703}
   - component: {fileID: 63856702}
+  - component: {fileID: 63856706}
   m_Layer: 0
   m_Name: cube_fringles
   m_TagString: Untagged
@@ -1101,6 +1102,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63856700}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &63856706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63856700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed5ebdcbbd5d7849a7032f4abbbf9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDownFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  MouseOverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 63856706}
+        m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
+        m_MethodName: OnHoverAisle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mm_text: {fileID: 0}
+  ls_text: {fileID: 0}
+  aisleName: {fileID: 1546772440}
 --- !u!1001 &67534381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3839,6 +3873,7 @@ GameObject:
   - component: {fileID: 287882451}
   - component: {fileID: 287882450}
   - component: {fileID: 287882453}
+  - component: {fileID: 287882454}
   m_Layer: 0
   m_Name: cube_coke
   m_TagString: Untagged
@@ -3938,6 +3973,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   eraseRenderer: 1
+--- !u!114 &287882454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287882448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed5ebdcbbd5d7849a7032f4abbbf9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDownFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  MouseOverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 287882454}
+        m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
+        m_MethodName: OnHoverAisle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mm_text: {fileID: 0}
+  ls_text: {fileID: 0}
+  aisleName: {fileID: 1546772440}
 --- !u!1001 &289483339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4680,6 +4748,7 @@ GameObject:
   - component: {fileID: 330968567}
   - component: {fileID: 330968566}
   - component: {fileID: 330968565}
+  - component: {fileID: 330968569}
   m_Layer: 0
   m_Name: cube_yogurt
   m_TagString: Untagged
@@ -4779,6 +4848,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330968563}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &330968569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330968563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed5ebdcbbd5d7849a7032f4abbbf9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDownFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  MouseOverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 330968569}
+        m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
+        m_MethodName: OnHoverAisle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mm_text: {fileID: 0}
+  ls_text: {fileID: 0}
+  aisleName: {fileID: 1546772440}
 --- !u!1001 &335442967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6490,6 +6592,7 @@ RectTransform:
   - {fileID: 1921547905}
   - {fileID: 311025495}
   - {fileID: 1783203051}
+  - {fileID: 1546772439}
   m_Father: {fileID: 1229809335}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7005,6 +7108,7 @@ GameObject:
   - component: {fileID: 511534049}
   - component: {fileID: 511534048}
   - component: {fileID: 511534052}
+  - component: {fileID: 511534053}
   m_Layer: 0
   m_Name: cube_grapes
   m_TagString: Untagged
@@ -7104,6 +7208,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   eraseRenderer: 1
+--- !u!114 &511534053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511534047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed5ebdcbbd5d7849a7032f4abbbf9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDownFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  MouseOverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 511534053}
+        m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
+        m_MethodName: OnHoverAisle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mm_text: {fileID: 0}
+  ls_text: {fileID: 0}
+  aisleName: {fileID: 1546772440}
 --- !u!1001 &512376050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7343,6 +7480,7 @@ GameObject:
   - component: {fileID: 537501056}
   - component: {fileID: 537501055}
   - component: {fileID: 537501054}
+  - component: {fileID: 537501058}
   m_Layer: 0
   m_Name: cube_milk
   m_TagString: Untagged
@@ -7442,6 +7580,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537501052}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &537501058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537501052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed5ebdcbbd5d7849a7032f4abbbf9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDownFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  MouseOverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 537501058}
+        m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
+        m_MethodName: OnHoverAisle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mm_text: {fileID: 0}
+  ls_text: {fileID: 0}
+  aisleName: {fileID: 1546772440}
 --- !u!1 &570331151
 GameObject:
   m_ObjectHideFlags: 0
@@ -18362,6 +18533,7 @@ GameObject:
   - component: {fileID: 1327596892}
   - component: {fileID: 1327596891}
   - component: {fileID: 1327596890}
+  - component: {fileID: 1327596894}
   m_Layer: 0
   m_Name: cube_bread
   m_TagString: Untagged
@@ -18461,6 +18633,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327596888}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1327596894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327596888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed5ebdcbbd5d7849a7032f4abbbf9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDownFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  MouseOverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1327596894}
+        m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
+        m_MethodName: OnHoverAisle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mm_text: {fileID: 0}
+  ls_text: {fileID: 0}
+  aisleName: {fileID: 1546772440}
 --- !u!1 &1329171109
 GameObject:
   m_ObjectHideFlags: 0
@@ -19477,6 +19682,7 @@ GameObject:
   - component: {fileID: 1410268512}
   - component: {fileID: 1410268511}
   - component: {fileID: 1410268510}
+  - component: {fileID: 1410268514}
   m_Layer: 0
   m_Name: cube_water
   m_TagString: Untagged
@@ -19576,6 +19782,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410268508}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1410268514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410268508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed5ebdcbbd5d7849a7032f4abbbf9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDownFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  MouseOverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1410268514}
+        m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
+        m_MethodName: OnHoverAisle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mm_text: {fileID: 0}
+  ls_text: {fileID: 0}
+  aisleName: {fileID: 1546772440}
 --- !u!1 &1411677416
 GameObject:
   m_ObjectHideFlags: 0
@@ -21877,6 +22116,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c8dab747a3f16c14f8485c8a54a17072, type: 3}
   m_PrefabInstance: {fileID: 1543152048}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1546772438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1546772439}
+  - component: {fileID: 1546772441}
+  - component: {fileID: 1546772440}
+  m_Layer: 5
+  m_Name: OnHoverAisleName
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1546772439
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546772438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 473114332}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 751.23, y: -496.18}
+  m_SizeDelta: {x: 417.5483, y: 87.6598}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1546772440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546772438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7c07c5bf19103a645b6aa41b906854fa, type: 3}
+    m_FontSize: 44
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 89
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Aisle name
+--- !u!222 &1546772441
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546772438}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1549222531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23515,6 +23834,7 @@ GameObject:
   - component: {fileID: 1691688671}
   - component: {fileID: 1691688670}
   - component: {fileID: 1691688669}
+  - component: {fileID: 1691688673}
   m_Layer: 0
   m_Name: cube_soap
   m_TagString: Untagged
@@ -23614,6 +23934,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691688667}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1691688673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691688667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed5ebdcbbd5d7849a7032f4abbbf9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDownFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  MouseOverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1691688673}
+        m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
+        m_MethodName: OnHoverAisle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mm_text: {fileID: 0}
+  ls_text: {fileID: 0}
+  aisleName: {fileID: 1546772440}
 --- !u!1001 &1693245411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24118,19 +24471,6 @@ MonoBehaviour:
   gradeEarned: {fileID: 1636303038}
   newGradeNotif: {fileID: 308105818}
   nextLevel: {fileID: 1168659315}
-  outlines:
-  - {fileID: 1882306584}
-  - {fileID: 2103069926}
-  - {fileID: 1327596890}
-  - {fileID: 287882453}
-  - {fileID: 63856702}
-  - {fileID: 511534052}
-  - {fileID: 537501054}
-  - {fileID: 1982977065}
-  - {fileID: 2144231594}
-  - {fileID: 1691688669}
-  - {fileID: 1410268510}
-  - {fileID: 330968565}
   cartAgents:
   - {fileID: 924492702}
   - {fileID: 2099913330}
@@ -26816,6 +27156,7 @@ GameObject:
   - component: {fileID: 1882306581}
   - component: {fileID: 1882306580}
   - component: {fileID: 1882306584}
+  - component: {fileID: 1882306585}
   m_Layer: 0
   m_Name: cube_apples
   m_TagString: Untagged
@@ -26915,6 +27256,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   eraseRenderer: 1
+--- !u!114 &1882306585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882306579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed5ebdcbbd5d7849a7032f4abbbf9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDownFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  MouseOverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1882306585}
+        m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
+        m_MethodName: OnHoverAisle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mm_text: {fileID: 0}
+  ls_text: {fileID: 0}
+  aisleName: {fileID: 1546772440}
 --- !u!1 &1888595849
 GameObject:
   m_ObjectHideFlags: 0
@@ -28547,6 +28921,7 @@ GameObject:
   - component: {fileID: 1982977062}
   - component: {fileID: 1982977061}
   - component: {fileID: 1982977065}
+  - component: {fileID: 1982977066}
   m_Layer: 0
   m_Name: cube_onions
   m_TagString: Untagged
@@ -28646,6 +29021,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   eraseRenderer: 1
+--- !u!114 &1982977066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982977060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed5ebdcbbd5d7849a7032f4abbbf9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDownFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  MouseOverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1982977066}
+        m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
+        m_MethodName: OnHoverAisle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mm_text: {fileID: 0}
+  ls_text: {fileID: 0}
+  aisleName: {fileID: 1546772440}
 --- !u!1001 &1989033346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29996,6 +30404,7 @@ GameObject:
   - component: {fileID: 2103069923}
   - component: {fileID: 2103069922}
   - component: {fileID: 2103069926}
+  - component: {fileID: 2103069927}
   m_Layer: 0
   m_Name: cube_bananas
   m_TagString: Untagged
@@ -30095,6 +30504,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   eraseRenderer: 1
+--- !u!114 &2103069927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103069921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed5ebdcbbd5d7849a7032f4abbbf9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDownFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  MouseOverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2103069927}
+        m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
+        m_MethodName: OnHoverAisle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mm_text: {fileID: 0}
+  ls_text: {fileID: 0}
+  aisleName: {fileID: 1546772440}
 --- !u!1001 &2123648110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30408,6 +30850,7 @@ GameObject:
   - component: {fileID: 2144231591}
   - component: {fileID: 2144231590}
   - component: {fileID: 2144231594}
+  - component: {fileID: 2144231595}
   m_Layer: 0
   m_Name: cube_oranges
   m_TagString: Untagged
@@ -30507,6 +30950,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   eraseRenderer: 1
+--- !u!114 &2144231595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144231589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed5ebdcbbd5d7849a7032f4abbbf9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDownFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  MouseOverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2144231595}
+        m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
+        m_MethodName: OnHoverAisle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  mm_text: {fileID: 0}
+  ls_text: {fileID: 0}
+  aisleName: {fileID: 1546772440}
 --- !u!1001 &977605748195226271
 PrefabInstance:
   m_ObjectHideFlags: 0
