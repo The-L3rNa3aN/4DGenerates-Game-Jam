@@ -6,14 +6,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using cakeslice;
 using Outline = cakeslice.Outline;
 
-/// Used only in the MainMenu_3D scene. Also handles mouse over events.
+/// Used in MainMenu_3D and 123. Also handles mouse over events.
 
 public class ClickableObject : MonoBehaviour
 {
-    public bool isClickable { get; set; }
+    public bool isClickable;
 
     public UnityEvent MouseDownFunc;
     public UnityEvent MouseOverFunc;
@@ -78,9 +77,13 @@ public class ClickableObject : MonoBehaviour
     private void OnMouseExit()
     {
         //I hate them fucking errors flooding the console.
-        if(mm_text != null) mm_text.gameObject.SetActive(false);
-        if(ls_text != null) ls_text.gameObject.SetActive(false);
+        if (mm_text != null) mm_text.gameObject.SetActive(false);
+        if (ls_text != null) ls_text.gameObject.SetActive(false);
         if (aisleName != null) aisleName.gameObject.SetActive(false);
+
+        Outline[] _outlineObjects = GameManager.instance.outlineObjects;
+        foreach(Outline o in _outlineObjects)
+            o.eraseRenderer = true;
     }
 
     #region MAIN MENU FUNCTIONS

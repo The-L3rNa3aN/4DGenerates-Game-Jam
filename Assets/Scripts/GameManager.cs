@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour//, ISerializationCallbackReceiver
     private GameObject cameraManager;
     private OutlineEffect outLineEffect;
     public GameObject[] cartAgents;
+    public Outline[] outlineObjects;
     public GameObject gameUI;
 
     private void Awake()
