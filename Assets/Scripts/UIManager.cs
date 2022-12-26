@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject menuPanel;
+
     [Header("Grades earned")]
     private string Day1Grade;
     private string Day2Grade;
@@ -78,8 +80,9 @@ public class UIManager : MonoBehaviour
         }
 
         Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
+        menuPanel.SetActive(false);
         //PlayerPrefs.Save();
-        SceneManager.LoadScene("123");
+        //SceneManager.LoadScene("123");
     }
 
     public void ResetButton()
