@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ThreeDCameraManager : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class ThreeDCameraManager : MonoBehaviour
     public Transform howToPlay;
     public Transform credits;
     public Transform quit;
+
+    [Header("UI References")]
+    public Image img;
+
+    [Header("Level Loader")]
+    public LoadingScreen loadingScreen;
 
     private void Awake()
     {

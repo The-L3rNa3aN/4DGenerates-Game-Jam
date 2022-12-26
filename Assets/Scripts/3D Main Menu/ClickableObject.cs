@@ -17,6 +17,8 @@ public class ClickableObject : MonoBehaviour
     public UnityEvent MouseDownFunc;
     public UnityEvent MouseOverFunc;
 
+    private Image img;
+
     [Header("ThreeDCameraManager position references")]
     private Vector3 menu;
     private Vector3 levelSelect;
@@ -61,6 +63,7 @@ public class ClickableObject : MonoBehaviour
             howToPlay = ThreeDCameraManager.instance.howToPlay.position;
             credits = ThreeDCameraManager.instance.credits.position;
             quit = ThreeDCameraManager.instance.quit.position;
+            img = ThreeDCameraManager.instance.img;
 
             Day1Grade = PlayerPrefs.GetString("day1_grade");
             Day2Grade = PlayerPrefs.GetString("day2_grade");
@@ -133,16 +136,51 @@ public class ClickableObject : MonoBehaviour
     #endregion
 
     #region LEVEL SELECT FUNCTIONS
+    public void OnClickLevelSelected(int levelNumber)
+    {
+        char c = default;
+        string grade = default;
+        LoadingScreen loadingScreen = ThreeDCameraManager.instance.loadingScreen;
+        if(levelNumber != 1)
+        {
+            if (levelNumber == 2)
+            {
+                grade = Day1Grade;
+                c = StringToChar(grade);
+            }
+            else
+            {
+                grade = Day2Grade;
+                c = StringToChar(grade);
+            }
+        }
+
+        if (grade == "none" && c <= 'C')
+        {
+            PlayerPrefs.SetInt("levelSelectValue", levelNumber);
+            Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
+            loadingScreen.LoadScene(3);
+        }
+        else
+        {
+            switch (c)
+            {
+                case '2':
+                    Debug.Log("Requires 'C' or higher in Day 1");
+                    break;
+
+                case '3':
+                    Debug.Log("Requires 'C' or higher in Day 2");
+                    break;
+            }
+        }
+    }
+
     public void MDDay1()
     {
         PlayerPrefs.SetInt("levelSelectValue", 1);
         Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
-        SceneManager.LoadScene("123");
-    }
-    public void MODay1()
-    {
-        ls_text.gameObject.SetActive(true);
-        ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day1_grade");
+        //SceneManager.LoadScene("123");
     }
 
     public void MDDay2()
@@ -152,17 +190,11 @@ public class ClickableObject : MonoBehaviour
         {
             PlayerPrefs.SetInt("levelSelectValue", 2);
             Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
-            SceneManager.LoadScene("123");
+            //SceneManager.LoadScene("123");
         }
         else
             Debug.Log("Requires 'C' or higher in Day 1.");
     }
-    public void MODay2()
-    {
-        ls_text.gameObject.SetActive(true);
-        ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day2_grade");
-    }
-
     public void MDDay3()
     {
         char c = StringToChar(Day2Grade);
@@ -170,11 +202,23 @@ public class ClickableObject : MonoBehaviour
         {
             PlayerPrefs.SetInt("levelSelectValue", 3);
             Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
-            SceneManager.LoadScene("123");
+            //SceneManager.LoadScene("123");
         }
         else
             Debug.Log("Requires 'C' or higher in Day 2.");
     }
+
+    public void MODay1()
+    {
+        ls_text.gameObject.SetActive(true);
+        ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day1_grade");
+    }
+    public void MODay2()
+    {
+        ls_text.gameObject.SetActive(true);
+        ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day2_grade");
+    }
+
     public void MODay3()
     {
         ls_text.gameObject.SetActive(true);
