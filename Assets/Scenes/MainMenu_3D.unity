@@ -1755,7 +1755,9 @@ MonoBehaviour:
   howToPlay: {fileID: 2039203590}
   credits: {fileID: 1300912990}
   quit: {fileID: 1443029335}
+  lScreen: {fileID: 1245981254}
   img: {fileID: 1009495146}
+  loadingScreen: {fileID: 133911382}
 --- !u!1001 &682491956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3856,12 +3858,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1442309801}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MDDay1
-        m_Mode: 1
+        m_MethodName: OnClickLevelSelected
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

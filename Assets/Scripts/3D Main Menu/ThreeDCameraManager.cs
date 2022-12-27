@@ -13,6 +13,7 @@ public class ThreeDCameraManager : MonoBehaviour
     public Transform howToPlay;
     public Transform credits;
     public Transform quit;
+    public Transform lScreen;
 
     [Header("UI References")]
     public Image img;
@@ -30,6 +31,11 @@ public class ThreeDCameraManager : MonoBehaviour
     }
 
     public void MoveCamera(Vector3 start, Vector3 finish) => StartCoroutine(CoMoveCamera(start, finish));
+    public void SnapCamera()
+    {
+        GetComponent<Camera>().orthographicSize = (float)(double)3.5;
+        transform.position = lScreen.position;
+    }
 
     private IEnumerator CoMoveCamera(Vector3 start, Vector3 finish)
     {

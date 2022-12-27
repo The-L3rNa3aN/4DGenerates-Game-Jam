@@ -84,9 +84,12 @@ public class ClickableObject : MonoBehaviour
         if (ls_text != null) ls_text.gameObject.SetActive(false);
         if (aisleName != null) aisleName.gameObject.SetActive(false);
 
-        Outline[] _outlineObjects = GameManager.instance.outlineObjects;
-        foreach(Outline o in _outlineObjects)
-            o.eraseRenderer = true;
+        if(SceneManager.GetActiveScene().name == "123")
+        {
+            Outline[] _outlineObjects = GameManager.instance.outlineObjects;
+            foreach (Outline o in _outlineObjects)
+                o.eraseRenderer = true;
+        }
     }
 
     #region MAIN MENU FUNCTIONS
@@ -153,27 +156,37 @@ public class ClickableObject : MonoBehaviour
                 grade = Day2Grade;
                 c = StringToChar(grade);
             }
-        }
 
-        if (grade == "none" && c <= 'C')
-        {
-            PlayerPrefs.SetInt("levelSelectValue", levelNumber);
-            Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
-            loadingScreen.LoadScene(3);
+            if (grade == "none" && c <= 'C')
+            {
+                PlayerPrefs.SetInt("levelSelectValue", levelNumber);
+                Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
+                ThreeDCameraManager.instance.SnapCamera();
+                loadingScreen.LoadScene(3);
+            }
+            else
+            {
+                switch (c)
+                {
+                    case '2':
+                        Debug.Log("Requires 'C' or higher in Day 1");
+                        break;
+
+                    case '3':
+                        Debug.Log("Requires 'C' or higher in Day 2");
+                        break;
+                }
+            }
         }
         else
         {
-            switch (c)
-            {
-                case '2':
-                    Debug.Log("Requires 'C' or higher in Day 1");
-                    break;
-
-                case '3':
-                    Debug.Log("Requires 'C' or higher in Day 2");
-                    break;
-            }
+            PlayerPrefs.SetInt("levelSelectValue", levelNumber);
+            Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
+            ThreeDCameraManager.instance.SnapCamera();
+            loadingScreen.LoadScene(3);
         }
+
+        
     }
 
     public void MDDay1()

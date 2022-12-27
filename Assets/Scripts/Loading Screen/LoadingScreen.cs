@@ -19,7 +19,7 @@ public class LoadingScreen : MonoBehaviour
         while(!operation.isDone)
         {
             float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
-            Vector3 changeScale = new Vector3(progressValue, 0f, 0f);
+            Vector3 changeScale = new Vector3(progressValue, 1f, 1f);
             loadingImage.localScale = changeScale; //slider.value = progressValue;
             yield return null;
         }
