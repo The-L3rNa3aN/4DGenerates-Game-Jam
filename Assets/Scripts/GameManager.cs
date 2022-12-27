@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using System;
 using Outline = cakeslice.Outline;
 
-public class GameManager : MonoBehaviour//, ISerializationCallbackReceiver
+public class GameManager : MonoBehaviour
 {
     public int cartNum;
     public int levelSelected;
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour//, ISerializationCallbackReceiver
                 break;
         }
 
-        StartCoroutine(CoBeginCountdown());             //Start a "3-2-1" countdown for the player to prepare.
+        StartCoroutine(CoBeginCountdown());                         //Start a "3-2-1" countdown for the player to prepare.
     }
 
     private void Update()

@@ -177,12 +177,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7930265}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MDCredits
-        m_Mode: 1
+        m_MethodName: OnClickMainMenu
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -192,12 +192,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7930265}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MOCredits
-        m_Mode: 1
+        m_MethodName: MainMenuMouseOver
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2019,12 +2019,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 707877443}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MDDay2
-        m_Mode: 1
+        m_MethodName: OnClickLevelSelected
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2034,12 +2034,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 707877443}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MODay2
-        m_Mode: 1
+        m_MethodName: LevelSelectMouseOver
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2434,12 +2434,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 972360509}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MDDay3
-        m_Mode: 1
+        m_MethodName: OnClickLevelSelected
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2449,12 +2449,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 972360509}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MODay3
-        m_Mode: 1
+        m_MethodName: LevelSelectMouseOver
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3649,14 +3649,14 @@ MonoBehaviour:
   MouseDownFunc:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1426720170}
+      - m_Target: {fileID: 7930265}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MDQuit
-        m_Mode: 1
+        m_MethodName: OnClickMainMenu
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3664,14 +3664,14 @@ MonoBehaviour:
   MouseOverFunc:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1426720170}
+      - m_Target: {fileID: 7930265}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MOQuit
-        m_Mode: 1
+        m_MethodName: MainMenuMouseOver
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3873,12 +3873,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1442309801}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MODay1
-        m_Mode: 1
+        m_MethodName: LevelSelectMouseOver
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4729,14 +4729,14 @@ MonoBehaviour:
   MouseDownFunc:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1661743761}
+      - m_Target: {fileID: 7930265}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MDPlay
-        m_Mode: 1
+        m_MethodName: OnClickMainMenu
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4744,14 +4744,14 @@ MonoBehaviour:
   MouseOverFunc:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1661743761}
+      - m_Target: {fileID: 7930265}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MOPlay
-        m_Mode: 1
+        m_MethodName: MainMenuMouseOver
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4811,14 +4811,14 @@ MonoBehaviour:
   MouseDownFunc:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1671450058}
+      - m_Target: {fileID: 7930265}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MDHowToPlay
-        m_Mode: 1
+        m_MethodName: OnClickMainMenu
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4826,14 +4826,14 @@ MonoBehaviour:
   MouseOverFunc:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1671450058}
+      - m_Target: {fileID: 7930265}
         m_TargetAssemblyTypeName: ClickableObject, Assembly-CSharp
-        m_MethodName: MOHowToPlay
-        m_Mode: 1
+        m_MethodName: MainMenuMouseOver
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

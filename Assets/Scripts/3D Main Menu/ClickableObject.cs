@@ -93,48 +93,53 @@ public class ClickableObject : MonoBehaviour
     }
 
     #region MAIN MENU FUNCTIONS
-    public void MDPlay()
+    public void OnClickMainMenu(int id)
     {
-        Debug.Log("Navigating to PLAY");
-        ThreeDCameraManager.instance.MoveCamera(menu, levelSelect);
-    }
-    public void MOPlay()
-    {
-        mm_text.gameObject.SetActive(true);
-        mm_text.text = "Play the game";
+        switch(id)
+        {
+            case 1:
+                Debug.Log("Navigating to PLAY");
+                ThreeDCameraManager.instance.MoveCamera(menu, levelSelect);
+                break;
+
+            case 2:
+                Debug.Log("Navigating to HOW TO PLAY");
+                ThreeDCameraManager.instance.MoveCamera(menu, howToPlay);
+                break;
+
+            case 3:
+                Debug.Log("Navigating to CREDITS");
+                ThreeDCameraManager.instance.MoveCamera(menu, credits);
+                break;
+
+            case 4:
+                Debug.Log("Navigating to QUIT");
+                ThreeDCameraManager.instance.MoveCamera(menu, quit);
+                break;
+        }
     }
 
-    public void MDHowToPlay()
-    {
-        Debug.Log("Navigating to HOW TO PLAY");
-        ThreeDCameraManager.instance.MoveCamera(menu, howToPlay);
-    }
-    public void MOHowToPlay()
+    public void MainMenuMouseOver(int id)
     {
         mm_text.gameObject.SetActive(true);
-        mm_text.text = "All the know-how for playing";
-    }
+        switch (id)
+        {
+            case 1:
+                mm_text.text = "Play the game";
+                break;
 
-    public void MDCredits()
-    {
-        Debug.Log("Navigating to CREDITS");
-        ThreeDCameraManager.instance.MoveCamera(menu, credits);
-    }
-    public void MOCredits()
-    {
-        mm_text.gameObject.SetActive(true);
-        mm_text.text = "Learn the ones behind the game (and maybe your mom)";
-    }
+            case 2:
+                mm_text.text = "All the know-how for playing";
+                break;
 
-    public void MDQuit()
-    {
-        Debug.Log("Navigating to QUIT");
-        ThreeDCameraManager.instance.MoveCamera(menu, quit);
-    }
-    public void MOQuit()
-    {
-        mm_text.gameObject.SetActive(true);
-        mm_text.text = "Quit the game and go touch grass";
+            case 3:
+                mm_text.text = "Learn the ones behind the game (and maybe your mom)";
+                break;
+
+            case 4:
+                mm_text.text = "Quit the game and go touch grass";
+                break;
+        }
     }
     #endregion
 
@@ -185,57 +190,25 @@ public class ClickableObject : MonoBehaviour
             ThreeDCameraManager.instance.SnapCamera();
             loadingScreen.LoadScene(3);
         }
-
-        
     }
 
-    public void MDDay1()
+    public void LevelSelectMouseOver(int level)
     {
-        PlayerPrefs.SetInt("levelSelectValue", 1);
-        Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
-        //SceneManager.LoadScene("123");
-    }
-
-    public void MDDay2()
-    {
-        char c = StringToChar(Day1Grade);
-        if (Day1Grade != "none" && c <= 'C')
+        ls_text.gameObject.SetActive(true);
+        switch (level)
         {
-            PlayerPrefs.SetInt("levelSelectValue", 2);
-            Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
-            //SceneManager.LoadScene("123");
-        }
-        else
-            Debug.Log("Requires 'C' or higher in Day 1.");
-    }
-    public void MDDay3()
-    {
-        char c = StringToChar(Day2Grade);
-        if (Day2Grade != "none" && c <= 'C')
-        {
-            PlayerPrefs.SetInt("levelSelectValue", 3);
-            Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));
-            //SceneManager.LoadScene("123");
-        }
-        else
-            Debug.Log("Requires 'C' or higher in Day 2.");
-    }
+            case 1:
+                ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day1_grade");
+                break;
 
-    public void MODay1()
-    {
-        ls_text.gameObject.SetActive(true);
-        ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day1_grade");
-    }
-    public void MODay2()
-    {
-        ls_text.gameObject.SetActive(true);
-        ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day2_grade");
-    }
+            case 2:
+                ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day2_grade");
+                break;
 
-    public void MODay3()
-    {
-        ls_text.gameObject.SetActive(true);
-        ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day3_grade");
+            case 3:
+                ls_text.text = "Grade achieved: " + PlayerPrefs.GetString("day3_grade");
+                break;
+        }
     }
 
     public void MDReset()
