@@ -302,6 +302,16 @@ public class ClickableObject : MonoBehaviour
     }
     #endregion
 
+    #region 123 PAUSE MENU
+    public void Resume_MouseDown() => GameManager.instance.PauseGame();
+
+    public void MainMenu_MouseDown()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu_3D");
+    }
+    #endregion
+
     public void Yes()
     {
         PlayerPrefs.Save();

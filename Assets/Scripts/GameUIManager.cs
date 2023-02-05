@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 /*Separate script for handling certain in-game UI (mostly for lesser headache).
 Handles the following things: -
@@ -14,47 +15,33 @@ Handles the following things: -
 
 public class GameUIManager : MonoBehaviour
 {
-    private GameManager gameManager;
-
-    [Header("In Game UI")]
-    public Text t_gameTimer;
-    public Text t_cartSelected;
-    public Text t_score;
-    public Text[] t_listItems;                                           //Assigned in editor.
-
-    [Header("GameManager references")]
-    [SerializeField] private float gameTimer;
-    [SerializeField] private int cartNum;
-    [SerializeField] private GameObject[] agents;
-    [SerializeField] private int score;
-
-    private void Update()
-    {
-        gameManager = GameManager.instance;
-        gameTimer = gameManager.gameTimer;
-        cartNum = gameManager.cartNum;
-        agents = gameManager.cartAgents;
-        score = gameManager.score;
-    }
+    public TextMeshPro t_gameTimerTMP;
+    public TextMeshPro t_cartSelectedTMP;
+    public TextMeshPro t_scoreTMP;
+    public TextMeshPro[] t_listItemsTMP;                                //Assigned in editor.
 
     private void OnGUI()
     {
-        t_gameTimer.text = FormatTime(gameTimer);                       //Displays the game timer.
-        t_cartSelected.text = "Cart selected: " + cartNum;              //Displays the cart number currently selected.
-        t_score.text = "Score: " + score;                               //Displays the score.
+        t_gameTimerTMP.text = FormatTime(GameManager.instance.gameTimer);                    //Displays the game timer.
 
-        foreach(Text item in t_listItems) item.text = "";
 
-        foreach (GameObject agent in agents)
+        t_cartSelectedTMP.text = "Cart selected: " + GameManager.instance.cartNum;           //Displays the cart number currently selected.
+
+
+        t_scoreTMP.text = "Score: " + GameManager.instance.score;                            //Displays the score.
+
+        foreach(TextMeshPro item in t_listItemsTMP) item.text = "";
+
+        foreach (GameObject agent in GameManager.instance.cartAgents)
         {
-            if (agent.GetComponent<CartAgent>().cartNumber == cartNum)
+            if (agent.GetComponent<CartAgent>().cartNumber == GameManager.instance.cartNum)
             {
                 var list = agent.GetComponent<ShoppingList>().shopList;
 
                 //Display the cart's respective shopping list.
                 for (int i = 0; i < list.Count; i++)
                 {
-                    t_listItems[i].text = " - " + list[i];              //Bug in the displayed items on text.
+                    t_listItemsTMP[i].text = " - " + list[i];              //Bug in the displayed items on text.
                 }
             }
         }
@@ -67,7 +54,7 @@ public class GameUIManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void Button_Resume() => GameManager.instance.PauseGame();    //References for the pause panel are in GameManager.cs
+    public void Button_Resume() => GameManager.instance.PauseGame();    //References for the pause panel are in GameManager.instance.cs
 
     //GAME OVER SCREEN.
     public void Button_NextLevel()

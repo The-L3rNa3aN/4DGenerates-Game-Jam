@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    public Transform posA;
-    public Transform posB;
+    public bool ifInitialRot;
 
     [Header("Cart colors")]
     public Color cart1color;
@@ -15,20 +14,23 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        /*transform.SetParent(posA);
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.Euler(Vector3.zero);*/
         InputManager.tabInput += ChangeCamPosition;
+        ifInitialRot = true;
     }
 
     private void ChangeCamPosition()
     {
-        if (transform.parent == posA)
-            transform.SetParent(posB);
+        //transform.localPosition = Vector3.zero;
+        //transform.localRotation = Quaternion.Euler(Vector3.zero);
+        if(ifInitialRot)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(45.62f, 313.46f, 0f));
+            ifInitialRot = false;
+        }
         else
-            transform.SetParent(posA);
-
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(45.62f, 46.54f, 0f));
+            ifInitialRot = true;
+        }
     }
 }

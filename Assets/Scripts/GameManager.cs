@@ -175,24 +175,26 @@ public class GameManager : MonoBehaviour
         if(isPaused == false)
         {
             isPaused = true;
-            cameraManager.GetComponent<CameraManager>().enabled = false;
+            //cameraManager.GetComponent<CameraManager>().enabled = false;
 
             foreach (GameObject cart in cartAgents)
                 cart.GetComponent<CartAgent>().enabled = false;
 
-            Time.timeScale = 0f;
-            pauseMenu.SetActive(true);
+            //Time.timeScale = 0f;
+            //pauseMenu.SetActive(true);
+            StartCoroutine(PlayToPause());
         }
         else
         {
             isPaused = false;
-            cameraManager.GetComponent<CameraManager>().enabled = true;
+            //cameraManager.GetComponent<CameraManager>().enabled = true;
 
             foreach (GameObject cart in cartAgents)
                 cart.GetComponent<CartAgent>().enabled = true;
 
-            Time.timeScale = 1f;
-            pauseMenu.SetActive(false);
+            //Time.timeScale = 1f;
+            //pauseMenu.SetActive(false);
+            StartCoroutine(PauseToPlay());
         }
     }
     #endregion
@@ -240,6 +242,30 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         endScreen.SetActive(true);
         gameUI.SetActive(false);
+    }
+
+    private IEnumerator PlayToPause()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Time.timeScale = 0f;
+        cameraManager.transform.position = new Vector3(-90.9f, 0.4f, 0f);
+        cameraManager.transform.rotation = Quaternion.Euler(new Vector3(45.62f, 46.54f, 0f));
+    }
+
+    private IEnumerator PauseToPlay()
+    {
+        Debug.Log("PauseToPlay");
+        yield return new WaitForSeconds(0.5f);
+        Time.timeScale = 1f;
+        cameraManager.transform.position = new Vector3(-0f, 0.4f, 0f);
+        if(cameraManager.GetComponent<CameraManager>().ifInitialRot)
+        {
+            cameraManager.transform.rotation = Quaternion.Euler(new Vector3(45.62f, 46.54f, 0f));
+        }
+        else
+        {
+            cameraManager.transform.rotation = Quaternion.Euler(new Vector3(45.62f, 313.46f, 0f));
+        }
     }
 
     private void GetGradeOnEnd()
