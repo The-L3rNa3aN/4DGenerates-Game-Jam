@@ -20,8 +20,6 @@ public class CameraManager : MonoBehaviour
 
     private void ChangeCamPosition()
     {
-        //transform.localPosition = Vector3.zero;
-        //transform.localRotation = Quaternion.Euler(Vector3.zero);
         if(ifInitialRot)
         {
             transform.rotation = Quaternion.Euler(new Vector3(45.62f, 313.46f, 0f));

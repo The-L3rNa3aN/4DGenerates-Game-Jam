@@ -24,9 +24,7 @@ public class GameUIManager : MonoBehaviour
     {
         t_gameTimerTMP.text = FormatTime(GameManager.instance.gameTimer);                    //Displays the game timer.
 
-
         t_cartSelectedTMP.text = "Cart selected: " + GameManager.instance.cartNum;           //Displays the cart number currently selected.
-
 
         t_scoreTMP.text = "Score: " + GameManager.instance.score;                            //Displays the score.
 
@@ -40,9 +38,7 @@ public class GameUIManager : MonoBehaviour
 
                 //Display the cart's respective shopping list.
                 for (int i = 0; i < list.Count; i++)
-                {
                     t_listItemsTMP[i].text = " - " + list[i];              //Bug in the displayed items on text.
-                }
             }
         }
     }
@@ -60,7 +56,7 @@ public class GameUIManager : MonoBehaviour
     public void Button_NextLevel()
     {
         int currentLevel = PlayerPrefs.GetInt("levelSelectValue");
-        PlayerPrefs.SetInt("levelSelectValue", currentLevel++);
+        PlayerPrefs.SetInt("levelSelectValue", ++currentLevel);
         Debug.Log("Level selected: " + currentLevel);
         SceneManager.LoadScene("123");
     }

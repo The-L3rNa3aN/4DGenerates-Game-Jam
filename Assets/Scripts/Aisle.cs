@@ -13,9 +13,7 @@ public class Aisle : MonoBehaviour
             for(int i = 0; i < shoppingList.shopList.Count; i++)
             {
                 if (shoppingList.shopList[i] == product)
-                {
                     shoppingList.shopList.RemoveAt(i);
-                }
             }
             shoppingList.IfListEmpty();
         }

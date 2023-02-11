@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using Outline = cakeslice.Outline;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,11 +39,12 @@ public class GameManager : MonoBehaviour
     public Button nextLevel;
 
     [Header("Other References")]
-    private GameObject cameraManager;
+    [SerializeField] private GameObject cameraManager;
     private OutlineEffect outLineEffect;
     public GameObject[] cartAgents;
     public Outline[] outlineObjects;
     public GameObject gameUI;
+    public Image blackPanel;
 
     private void Awake()
     {
@@ -146,7 +148,7 @@ public class GameManager : MonoBehaviour
     {
         cartNum = 1;
         CameraManager cm = cameraManager.GetComponent<CameraManager>();
-
+        Debug.Log(cm);
         outLineEffect.lineColor0 = cm.cart1color;
     }
 
@@ -180,8 +182,6 @@ public class GameManager : MonoBehaviour
             foreach (GameObject cart in cartAgents)
                 cart.GetComponent<CartAgent>().enabled = false;
 
-            //Time.timeScale = 0f;
-            //pauseMenu.SetActive(true);
             StartCoroutine(PlayToPause());
         }
         else
@@ -192,8 +192,6 @@ public class GameManager : MonoBehaviour
             foreach (GameObject cart in cartAgents)
                 cart.GetComponent<CartAgent>().enabled = true;
 
-            //Time.timeScale = 1f;
-            //pauseMenu.SetActive(false);
             StartCoroutine(PauseToPlay());
         }
     }
@@ -208,6 +206,7 @@ public class GameManager : MonoBehaviour
         foreach(GameObject cart in cartAgents)                      //Disable interactions such as the camera and the carts until the countdown is over.
             cart.GetComponent<CartAgent>().enabled = false;
         cameraManager.GetComponent<CameraManager>().enabled = false;
+        GetComponent<InputManager>().enabled = false;
 
         countdownPanel.SetActive(true);
         num3.SetActive(true);
@@ -234,6 +233,7 @@ public class GameManager : MonoBehaviour
         }
 
         cameraManager.GetComponent<CameraManager>().enabled = true;
+        GetComponent<InputManager>().enabled = true;
         isTimerRunning = true;                                      //Start the game timer.
     }
 
@@ -246,25 +246,60 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PlayToPause()
     {
-        yield return new WaitForSeconds(0.5f);
-        Time.timeScale = 0f;
+        float t = 0f;
+        while (t < 1f)                  //Fade in.
+        {
+            t += Time.deltaTime * 2f;
+            if (t > 1f) t = 1;
+
+            blackPanel.color = Color.Lerp(blackPanel.color, new Color(0, 0, 0, 1), t);
+            yield return new WaitForEndOfFrame();
+        }
+
         cameraManager.transform.position = new Vector3(-90.9f, 0.4f, 0f);
         cameraManager.transform.rotation = Quaternion.Euler(new Vector3(45.62f, 46.54f, 0f));
+
+        t = 0f;
+        while (t < 1f)                  //Fade out.
+        {
+            t += Time.deltaTime * 2f;
+            if (t > 1f) t = 1;
+
+            blackPanel.color = Color.Lerp(blackPanel.color, new Color(0, 0, 0, 0), t);
+            yield return new WaitForEndOfFrame();
+        }
+
+        Time.timeScale = 0f;
     }
 
     private IEnumerator PauseToPlay()
     {
-        Debug.Log("PauseToPlay");
-        yield return new WaitForSeconds(0.5f);
         Time.timeScale = 1f;
+
+        float t = 0f;
+        while (t < 1f)                  //Fade in, again.
+        {
+            t += Time.deltaTime * 2f;
+            if (t > 1f) t = 1;
+
+            blackPanel.color = Color.Lerp(blackPanel.color, new Color(0, 0, 0, 1), t);
+            yield return new WaitForEndOfFrame();
+        }
+
         cameraManager.transform.position = new Vector3(-0f, 0.4f, 0f);
         if(cameraManager.GetComponent<CameraManager>().ifInitialRot)
-        {
             cameraManager.transform.rotation = Quaternion.Euler(new Vector3(45.62f, 46.54f, 0f));
-        }
         else
-        {
             cameraManager.transform.rotation = Quaternion.Euler(new Vector3(45.62f, 313.46f, 0f));
+
+        t = 0f;
+        while (t < 1f)                  //Fade out, again.
+        {
+            t += Time.deltaTime * 2f;
+            if (t > 1f) t = 1;
+
+            blackPanel.color = Color.Lerp(blackPanel.color, new Color(0, 0, 0, 0), t);
+            yield return new WaitForEndOfFrame();
         }
     }
 

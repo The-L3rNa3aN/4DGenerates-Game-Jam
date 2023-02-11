@@ -17,15 +17,6 @@ public class ClickableObject : MonoBehaviour
     public UnityEvent MouseDownFunc;
     public UnityEvent MouseOverFunc;
 
-    private Image img;
-
-    [Header("ThreeDCameraManager position references")]
-    private Vector3 menu;
-    private Vector3 levelSelect;
-    private Vector3 howToPlay;
-    private Vector3 credits;
-    private Vector3 quit;
-
     [Header("3D Text on hover")]
     public TextMeshPro mm_text;
     public TextMeshPro ls_text;
@@ -58,13 +49,6 @@ public class ClickableObject : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "MainMenu_3D")
         {
-            menu = ThreeDCameraManager.instance.menu.position;
-            levelSelect = ThreeDCameraManager.instance.levelSelect.position;
-            howToPlay = ThreeDCameraManager.instance.howToPlay.position;
-            credits = ThreeDCameraManager.instance.credits.position;
-            quit = ThreeDCameraManager.instance.quit.position;
-            img = ThreeDCameraManager.instance.img;
-
             Day1Grade = PlayerPrefs.GetString("day1_grade");
             Day2Grade = PlayerPrefs.GetString("day2_grade");
             Day3Grade = PlayerPrefs.GetString("day3_grade");
@@ -99,22 +83,22 @@ public class ClickableObject : MonoBehaviour
         {
             case 1:
                 Debug.Log("Navigating to PLAY");
-                ThreeDCameraManager.instance.MoveCamera(menu, levelSelect);
+                ThreeDCameraManager.instance.MoveCamera(ThreeDCameraManager.instance.menu.position, ThreeDCameraManager.instance.levelSelect.position);
                 break;
 
             case 2:
                 Debug.Log("Navigating to HOW TO PLAY");
-                ThreeDCameraManager.instance.MoveCamera(menu, howToPlay);
+                ThreeDCameraManager.instance.MoveCamera(ThreeDCameraManager.instance.menu.position, ThreeDCameraManager.instance.howToPlay.position);
                 break;
 
             case 3:
                 Debug.Log("Navigating to CREDITS");
-                ThreeDCameraManager.instance.MoveCamera(menu, credits);
+                ThreeDCameraManager.instance.MoveCamera(ThreeDCameraManager.instance.menu.position, ThreeDCameraManager.instance.credits.position);
                 break;
 
             case 4:
                 Debug.Log("Navigating to QUIT");
-                ThreeDCameraManager.instance.MoveCamera(menu, quit);
+                ThreeDCameraManager.instance.MoveCamera(ThreeDCameraManager.instance.menu.position, ThreeDCameraManager.instance.quit.position);
                 break;
         }
     }
@@ -321,7 +305,7 @@ public class ClickableObject : MonoBehaviour
     public void Back()                                              //Used for the back button and the "no" option before quitting.
     {
         Vector3 currentPos = ThreeDCameraManager.instance.transform.position;
-        ThreeDCameraManager.instance.MoveCamera(currentPos, menu);
+        ThreeDCameraManager.instance.MoveCamera(currentPos, ThreeDCameraManager.instance.menu.position);
     }
 
     private char StringToChar(string str)                           //Converts any string to char. Obviously.
