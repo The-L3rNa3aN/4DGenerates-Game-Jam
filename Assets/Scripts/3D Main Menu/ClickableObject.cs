@@ -146,7 +146,7 @@ public class ClickableObject : MonoBehaviour
                 c = StringToChar(grade);
             }
 
-            if (grade == "none" && c <= 'C')
+            if (grade == "none" || c <= 'C')
             {
                 PlayerPrefs.SetInt("levelSelectValue", levelNumber);
                 Debug.Log("Level selected: " + PlayerPrefs.GetInt("levelSelectValue"));

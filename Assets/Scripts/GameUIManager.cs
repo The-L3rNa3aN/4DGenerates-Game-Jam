@@ -47,7 +47,7 @@ public class GameUIManager : MonoBehaviour
     public void Button_MainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu_3D");
     }
 
     public void Button_Resume() => GameManager.instance.PauseGame();    //References for the pause panel are in GameManager.instance.cs
