@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
         InputManager.num3Input += Alpha3Selected;
 
         cameraManager = FindObjectOfType<CameraManager>().gameObject;
+        Debug.Log(cameraManager);
         outLineEffect = cameraManager.GetComponent<OutlineEffect>();
         levelSelected = PlayerPrefs.GetInt("levelSelectValue");
 
@@ -147,28 +148,30 @@ public class GameManager : MonoBehaviour
     private void Alpha1Selected()
     {
         cartNum = 1;
-        CameraManager cm = cameraManager.GetComponent<CameraManager>();
-        Debug.Log(cm);
-        outLineEffect.lineColor0 = cm.cart1color;
+        //CameraManager cm = cameraManager.GetComponent<CameraManager>();
+        //outLineEffect.lineColor0 = cm.cart1color;
+        outLineEffect.lineColor0 = cameraManager.GetComponent<CameraManager>().cart1color;
     }
 
     private void Alpha2Selected()
     {
-        CameraManager cm = cameraManager.GetComponent<CameraManager>();
+        //CameraManager cm = cameraManager.GetComponent<CameraManager>();
         if (levelSelected >= 2)
         {
             cartNum = 2;
-            outLineEffect.lineColor0 = cm.cart2color;
+            //outLineEffect.lineColor0 = cm.cart2color;
+            outLineEffect.lineColor0 = cameraManager.GetComponent<CameraManager>().cart2color;
         }
     }
 
     private void Alpha3Selected()
     {
-        CameraManager cm = cameraManager.GetComponent<CameraManager>();
+        //CameraManager cm = cameraManager.GetComponent<CameraManager>();
         if (levelSelected == 3)
         {
             cartNum = 3;
-            outLineEffect.lineColor0 = cm.cart3color;
+            //outLineEffect.lineColor0 = cm.cart3color;
+            outLineEffect.lineColor0 = cameraManager.GetComponent<CameraManager>().cart3color;
         }
     }
 
