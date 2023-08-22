@@ -2,10 +2,12 @@ using cakeslice;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraManager : MonoBehaviour
 {
     public bool ifInitialRot;
+    public Image blackPanel;
 
     [Header("Cart colors")]
     public Color cart1color;
@@ -20,7 +22,8 @@ public class CameraManager : MonoBehaviour
 
     private void ChangeCamPosition()
     {
-        if(ifInitialRot)
+        StartCoroutine(Fade());
+        /*if(ifInitialRot)
         {
             transform.rotation = Quaternion.Euler(new Vector3(45.62f, 313.46f, 0f));
             ifInitialRot = false;
@@ -29,6 +32,40 @@ public class CameraManager : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(new Vector3(45.62f, 46.54f, 0f));
             ifInitialRot = true;
+        }*/
+    }
+
+    private IEnumerator Fade()
+    {
+        float t = 0f;
+        while(t < 1f)
+        {
+            t += Time.deltaTime * 5f;
+            if(t > 1f) t = 1f;
+
+            blackPanel.color = Color.Lerp(blackPanel.color, new Color(0, 0, 0, 1), t);
+            yield return new WaitForEndOfFrame();
+        }
+
+        if (ifInitialRot)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(45.62f, 313.46f, 0f));
+            ifInitialRot = false;
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(45.62f, 46.54f, 0f));
+            ifInitialRot = true;
+        }
+
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 5f;
+            if (t > 1f) t = 1f;
+
+            blackPanel.color = Color.Lerp(blackPanel.color, new Color(0, 0, 0, 0), t);
+            yield return new WaitForEndOfFrame();
         }
     }
 }
