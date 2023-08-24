@@ -20,15 +20,25 @@ public class GameUIManager : MonoBehaviour
     public TextMeshPro t_scoreTMP;
     public TextMeshPro[] t_listItemsTMP;                                //Assigned in editor.
 
+    [Header("Second View items")]
+    public TextMeshPro t2_gameTimerTMP;
+    public TextMeshPro t2_cartSelectedTMP;
+    public TextMeshPro t2_scoreTMP;
+    public TextMeshPro[] t2_listItemsTMP;                               //Also assigned in editor.
+
     private void OnGUI()
     {
         t_gameTimerTMP.text = FormatTime(GameManager.instance.gameTimer);                    //Displays the game timer.
+        t2_gameTimerTMP.text = FormatTime(GameManager.instance.gameTimer);
 
         t_cartSelectedTMP.text = "Cart selected: " + GameManager.instance.cartNum;           //Displays the cart number currently selected.
+        t2_cartSelectedTMP.text = "Cart selected: " + GameManager.instance.cartNum;
 
         t_scoreTMP.text = "Score: " + GameManager.instance.score;                            //Displays the score.
+        t2_scoreTMP.text = "Score: " + GameManager.instance.score;
 
-        foreach(TextMeshPro item in t_listItemsTMP) item.text = "";
+        foreach (TextMeshPro item in t_listItemsTMP) item.text = "";
+        foreach (TextMeshPro item in t2_listItemsTMP) item.text = "";
 
         foreach (GameObject agent in GameManager.instance.cartAgents)
         {
@@ -38,7 +48,10 @@ public class GameUIManager : MonoBehaviour
 
                 //Display the cart's respective shopping list.
                 for (int i = 0; i < list.Count; i++)
+                {
                     t_listItemsTMP[i].text = " - " + list[i];              //Bug in the displayed items on text.
+                    t2_listItemsTMP[i].text = " - " + list[i];
+                }
             }
         }
     }

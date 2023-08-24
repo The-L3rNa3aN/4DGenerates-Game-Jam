@@ -51,11 +51,15 @@ public class CameraManager : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(new Vector3(45.62f, 313.46f, 0f));
             ifInitialRot = false;
+            GameManager.instance.parent_1.SetActive(false);
+            GameManager.instance.parent_2.SetActive(true);
         }
         else
         {
             transform.rotation = Quaternion.Euler(new Vector3(45.62f, 46.54f, 0f));
             ifInitialRot = true;
+            GameManager.instance.parent_1.SetActive(true);
+            GameManager.instance.parent_2.SetActive(false);
         }
 
         t = 0f;

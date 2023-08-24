@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviour
     public GameObject newGradeNotif;
     public Button nextLevel;
 
+    [Header("3D UI Parents")]
+    public GameObject parent_1;
+    public GameObject parent_2;
+
     [Header("Other References")]
     [SerializeField] private GameObject cameraManager;
     private OutlineEffect outLineEffect;
