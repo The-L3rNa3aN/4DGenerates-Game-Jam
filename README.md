@@ -1,4 +1,4 @@
-# 4DGenerates Game Jam
+# MAY EYE: Take Your Order
 ## Repository for the game jam project belonging to the 4DGenerates.
 Made for the BYOG 2022 game jam. <b>This is an ongoing project.</b><br>
 
